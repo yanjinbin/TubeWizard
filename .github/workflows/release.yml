@@ -34,6 +34,7 @@ jobs:
           mkdir -p "$OUT/src"
           cp manifest.json "$OUT/"
           cp -r icons "$OUT/"
+          cp -r _locales "$OUT/"
           cp -r src/background src/content src/popup "$OUT/src/"
           # strip dev-only assets that aren't part of the shipped extension
           rm -f "$OUT"/src/popup/promo.html \
