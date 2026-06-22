@@ -10,13 +10,20 @@
   <header>
     <span class="logo">▶</span>
     <h1>TubeWizard</h1>
+    <select id="langSelect">
+      <option value="">Auto</option>
+      <option value="en">English</option>
+      <option value="zh_CN">简体中文</option>
+      <option value="ja">日本語</option>
+      <option value="ko">한국어</option>
+    </select>
   </header>
 
   <section class="card">
     <div class="row">
       <div class="label">
-        <strong>Single Playback</strong>
-        <span>Auto-pause background YouTube tabs</span>
+        <strong data-i18n="singlePlayback">Single Playback</strong>
+        <span data-i18n="singlePlaybackDesc">Auto-pause background YouTube tabs</span>
       </div>
       <label class="toggle">
         <input type="checkbox" id="singlePlayback" />
@@ -26,8 +33,8 @@
 
     <div class="row">
       <div class="label">
-        <strong>Disable Picture-in-Picture</strong>
-        <span>Block PiP button and API</span>
+        <strong data-i18n="disablePip">Disable Picture-in-Picture</strong>
+        <span data-i18n="disablePipDesc">Block PiP button and API</span>
       </div>
       <label class="toggle">
         <input type="checkbox" id="disablePip" />
@@ -37,8 +44,8 @@
 
     <div class="row">
       <div class="label">
-        <strong>Theater Mode</strong>
-        <span>Default to wide player layout</span>
+        <strong data-i18n="theaterMode">Theater Mode</strong>
+        <span data-i18n="theaterModeDesc">Default to wide player layout</span>
       </div>
       <label class="toggle">
         <input type="checkbox" id="theaterMode" />
@@ -48,8 +55,8 @@
 
     <div class="row">
       <div class="label">
-        <strong>Buffer + Speed HUD</strong>
-        <span>Show buffer health & download speed in the control bar</span>
+        <strong data-i18n="bufferHud">Buffer + Speed HUD</strong>
+        <span data-i18n="bufferHudDesc">Show buffer health & download speed in the control bar</span>
       </div>
       <label class="toggle">
         <input type="checkbox" id="bufferHud" />
@@ -59,8 +66,8 @@
 
     <div class="row">
       <div class="label">
-        <strong>Autoplay</strong>
-        <span>Control YouTube's autoplay-next toggle</span>
+        <strong data-i18n="autoplay">Autoplay</strong>
+        <span data-i18n="autoplayDesc">Control YouTube's autoplay-next toggle</span>
       </div>
       <label class="toggle">
         <input type="checkbox" id="autoplay" />
@@ -70,12 +77,12 @@
   </section>
 
   <section class="card">
-    <h2>Auto Quality</h2>
+    <h2 data-i18n="autoQuality">Auto Quality</h2>
 
     <div class="row">
       <div class="label">
-        <strong>Enable Auto HD</strong>
-        <span>Set quality automatically on load</span>
+        <strong data-i18n="enableAutoHd">Enable Auto HD</strong>
+        <span data-i18n="enableAutoHdDesc">Set quality automatically on load</span>
       </div>
       <label class="toggle">
         <input type="checkbox" id="autoQuality" />
@@ -84,19 +91,25 @@
     </div>
 
     <div class="field" id="qualityOptions">
-      <label for="preferredQuality">Preferred Quality</label>
+      <label for="preferredQuality" data-i18n="preferredQuality">Preferred Quality</label>
       <select id="preferredQuality">
-        <option value="hd2160">4K (2160p)</option>
-        <option value="hd1440">1440p</option>
-        <option value="hd1080">1080p</option>
-        <option value="hd720">720p</option>
-        <option value="large">480p</option>
-        <option value="medium">360p</option>
-        <option value="small">240p</option>
-        <option value="tiny">144p</option>
+        <optgroup label="★ YouTube Premium">
+          <option value="hd4320">8K (4320p)</option>
+          <option value="hd2160">4K (2160p)</option>
+        </optgroup>
+        <optgroup label="Standard">
+          <option value="hd1440">1440p</option>
+          <option value="hd1080p">1080p Premium</option>
+          <option value="hd1080">1080p</option>
+          <option value="hd720">720p</option>
+          <option value="large">480p</option>
+          <option value="medium">360p</option>
+          <option value="small">240p</option>
+          <option value="tiny">144p</option>
+        </optgroup>
       </select>
 
-      <label for="preferredFps">Preferred FPS</label>
+      <label for="preferredFps" data-i18n="preferredFps">Preferred FPS</label>
       <select id="preferredFps">
         <option value="60">60 fps</option>
         <option value="30">30 fps</option>
@@ -104,8 +117,8 @@
 
       <div class="row top-gap">
         <div class="label">
-          <strong>Allow Fallback</strong>
-          <span>Use lower quality if preferred unavailable</span>
+          <strong data-i18n="allowFallback">Allow Fallback</strong>
+          <span data-i18n="allowFallbackDesc">Use lower quality if preferred unavailable</span>
         </div>
         <label class="toggle">
           <input type="checkbox" id="autoQualityFallback" />
@@ -114,6 +127,11 @@
       </div>
     </div>
   </section>
+
+  <footer>
+    <span id="footer-version"></span>
+    · <a href="https://github.com/yanjinbin/TubeWizard" target="_blank" rel="noopener">GitHub</a>
+  </footer>
 
   <script src="popup.js"></script>
 </body>

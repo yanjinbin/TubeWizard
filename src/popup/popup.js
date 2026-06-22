@@ -38,7 +38,6 @@ function saveSettings() {
     if (!input) continue;
     settings[key] = input.type === "checkbox" ? input.checked : input.value;
   }
-  // Coerce fps to number
   settings.preferredFps = Number(settings.preferredFps);
   chrome.storage.sync.set(settings);
 }
@@ -47,8 +46,35 @@ function updateQualityOptionsVisibility(enabled) {
   el("qualityOptions").classList.toggle("disabled", !enabled);
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+async function fetchMessages(lang) {
+  try {
+    const url = chrome.runtime.getURL(`_locales/${lang}/messages.json`);
+    const json = await (await fetch(url)).json();
+    return Object.fromEntries(Object.entries(json).map(([k, v]) => [k, v.message]));
+  } catch {
+    return null;
+  }
+}
+
+async function applyI18n() {
+  const { lang = "" } = await chrome.storage.sync.get("lang");
+  const messages = lang ? await fetchMessages(lang) : null;
+  document.documentElement.lang = lang || chrome.i18n.getUILanguage();
+  document.querySelectorAll("[data-i18n]").forEach((node) => {
+    const key = node.dataset.i18n;
+    const msg = messages?.[key] ?? chrome.i18n.getMessage(key);
+    if (msg) node.textContent = msg;
+  });
+  const sel = el("langSelect");
+  if (sel) sel.value = lang;
+}
+
+document.addEventListener("DOMContentLoaded", async () => {
+  await applyI18n();
   loadSettings();
+
+  const { version } = chrome.runtime.getManifest();
+  el("footer-version").textContent = `v${version}`;
 
   for (const key of FIELDS) {
     const input = el(key);
@@ -60,4 +86,15 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
+
+  el("langSelect").addEventListener("change", async (e) => {
+    await chrome.storage.sync.set({ lang: e.target.value });
+    await applyI18n();
+    // Notify all YouTube tabs to refresh HUD labels
+    const settings = await new Promise((r) => chrome.storage.sync.get(null, r));
+    const tabs = await chrome.tabs.query({ url: "*://*.youtube.com/*" });
+    tabs.forEach((tab) =>
+      chrome.tabs.sendMessage(tab.id, { type: "SETTINGS_UPDATE", settings }).catch(() => {})
+    );
+  });
 });

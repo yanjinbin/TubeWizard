@@ -15,13 +15,16 @@ async function getSettings() {
 }
 
 // ─── Single playback: one "play token" across all YouTube tabs ────────────────
-// playingTabId holds the tab currently allowed to play. A tab may play only if:
-//   • it already holds the token (same tab — e.g. in-tab navigation), or
-//   • no tab holds the token (first video / previous holder gone), or
-//   • the play was user-initiated (a real click/keypress) → it takes the token
-//     over and the previous holder is paused.
-// Autoplay in any other tab (new background tab, switched-to tab) is denied.
-let playingTabId = null;
+// playingTabId holds the tab currently allowed to play. Persisted in
+// chrome.storage.session so it survives MV3 service-worker sleep/wake cycles
+// (in-memory variables reset every time the worker goes idle).
+async function getPlayingTabId() {
+  const { playingTabId = null } = await chrome.storage.session.get("playingTabId");
+  return playingTabId;
+}
+async function setPlayingTabId(id) {
+  await chrome.storage.session.set({ playingTabId: id });
+}
 
 chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
   if (msg.type === "REQUEST_PLAY") {
@@ -37,6 +40,8 @@ async function handleRequestPlay(msg, sender) {
   const tabId = sender.tab?.id;
   if (!tabId) return { allow: true };
 
+  let playingTabId = await getPlayingTabId();
+
   // Drop a stale token if its tab no longer exists.
   if (playingTabId !== null && playingTabId !== tabId && !(await tabExists(playingTabId))) {
     playingTabId = null;
@@ -47,14 +52,14 @@ async function handleRequestPlay(msg, sender) {
 
   // No current player → this tab becomes it.
   if (playingTabId === null) {
-    playingTabId = tabId;
+    await setPlayingTabId(tabId);
     return { allow: true };
   }
 
   // A different tab holds the token. Only a real user action may take over.
   if (msg.userInitiated) {
     const previous = playingTabId;
-    playingTabId = tabId;
+    await setPlayingTabId(tabId);
     chrome.tabs.sendMessage(previous, { type: "PAUSE" }).catch(() => {});
     return { allow: true };
   }
@@ -72,8 +77,9 @@ async function tabExists(id) {
   }
 }
 
-chrome.tabs.onRemoved.addListener((id) => {
-  if (playingTabId === id) playingTabId = null;
+chrome.tabs.onRemoved.addListener(async (id) => {
+  const playingTabId = await getPlayingTabId();
+  if (playingTabId === id) await setPlayingTabId(null);
 });
 
 // ─── Push settings to tabs on load / settings change ─────────────────────────

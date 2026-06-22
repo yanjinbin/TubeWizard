@@ -21,6 +21,32 @@ header {
   border-bottom: 1px solid #272727;
 }
 
+header h1 {
+  flex: 1;
+}
+
+header select {
+  background: transparent;
+  color: #888;
+  border: 1px solid #383838;
+  border-radius: 6px;
+  font-size: 11px;
+  padding: 3px 6px;
+  cursor: pointer;
+  appearance: none;
+}
+
+header select:focus {
+  outline: none;
+  border-color: #ff0000;
+  color: #e8e8e8;
+}
+
+header select option {
+  background: #1a1a1a;
+  color: #e8e8e8;
+}
+
 .logo {
   font-size: 18px;
   color: #ff0000;
@@ -172,4 +198,40 @@ select:focus {
 #qualityOptions.disabled {
   opacity: 0.4;
   pointer-events: none;
+}
+
+footer {
+  text-align: center;
+  font-size: 11px;
+  color: #555;
+  padding: 10px 0 4px;
+}
+
+footer a {
+  color: #777;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #aaa;
+}
+
+footer select {
+  background: transparent;
+  color: #555;
+  border: none;
+  font-size: 11px;
+  cursor: pointer;
+  appearance: none;
+  padding: 0;
+}
+
+footer select:focus {
+  outline: none;
+  color: #aaa;
+}
+
+footer select option {
+  background: #1a1a1a;
+  color: #e8e8e8;
 }

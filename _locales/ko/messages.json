@@ -1,0 +1,29 @@
+{
+  "extName": { "message": "TubeWizard" },
+  "extDesc": { "message": "단일 재생, 자동 HD/FPS, PIP 비활성화, 시어터 모드, 자동 재생 제어, 버퍼/속도 HUD." },
+
+  "singlePlayback": { "message": "단일 재생" },
+  "singlePlaybackDesc": { "message": "백그라운드 YouTube 탭 자동 일시정지" },
+  "disablePip": { "message": "PIP 비활성화" },
+  "disablePipDesc": { "message": "PIP 버튼 및 API 차단" },
+  "theaterMode": { "message": "시어터 모드" },
+  "theaterModeDesc": { "message": "기본으로 와이드 레이아웃 사용" },
+  "bufferHud": { "message": "버퍼 + 속도 HUD" },
+  "bufferHudDesc": { "message": "컨트롤 바에 버퍼 상태와 다운로드 속도 표시" },
+  "autoplay": { "message": "자동 재생" },
+  "autoplayDesc": { "message": "YouTube 자동 재생 토글 동기화" },
+
+  "autoQuality": { "message": "자동 화질" },
+  "enableAutoHd": { "message": "자동 HD 사용" },
+  "enableAutoHdDesc": { "message": "로드 시 화질 자동 설정" },
+  "preferredQuality": { "message": "선호 화질" },
+  "preferredFps": { "message": "선호 프레임레이트" },
+  "allowFallback": { "message": "대체 허용" },
+  "allowFallbackDesc": { "message": "선호 화질이 없으면 낮은 화질 사용" },
+
+  "hudAmple": { "message": "버퍼 충분" },
+  "hudHealthy": { "message": "버퍼 양호" },
+  "hudOk": { "message": "버퍼 보통" },
+  "hudLow": { "message": "버퍼 부족" },
+  "hudDanger": { "message": "버퍼 위험" }
+}

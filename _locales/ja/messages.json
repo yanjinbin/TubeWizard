@@ -1,0 +1,29 @@
+{
+  "extName": { "message": "TubeWizard" },
+  "extDesc": { "message": "単一再生、自動 HD/FPS、PiP 無効化、シアターモード、自動再生制御、バッファ/速度 HUD。" },
+
+  "singlePlayback": { "message": "単一再生" },
+  "singlePlaybackDesc": { "message": "バックグラウンドの YouTube タブを自動停止" },
+  "disablePip": { "message": "ピクチャーインピクチャーを無効化" },
+  "disablePipDesc": { "message": "PiP ボタンと API をブロック" },
+  "theaterMode": { "message": "シアターモード" },
+  "theaterModeDesc": { "message": "既定でワイド表示にする" },
+  "bufferHud": { "message": "バッファ + 速度 HUD" },
+  "bufferHudDesc": { "message": "コントロールバーにバッファと通信速度を表示" },
+  "autoplay": { "message": "自動再生" },
+  "autoplayDesc": { "message": "YouTube の「次を自動再生」を同期" },
+
+  "autoQuality": { "message": "自動画質" },
+  "enableAutoHd": { "message": "自動 HD を有効化" },
+  "enableAutoHdDesc": { "message": "読み込み時に画質を自動設定" },
+  "preferredQuality": { "message": "優先画質" },
+  "preferredFps": { "message": "優先フレームレート" },
+  "allowFallback": { "message": "フォールバックを許可" },
+  "allowFallbackDesc": { "message": "優先画質が無い場合は低画質を使用" },
+
+  "hudAmple": { "message": "バッファ十分" },
+  "hudHealthy": { "message": "バッファ良好" },
+  "hudOk": { "message": "バッファ普通" },
+  "hudLow": { "message": "バッファ低下" },
+  "hudDanger": { "message": "バッファ危険" }
+}

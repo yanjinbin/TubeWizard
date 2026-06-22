@@ -1,0 +1,29 @@
+{
+  "extName": { "message": "TubeWizard" },
+  "extDesc": { "message": "Single playback, auto HD/FPS, disable PiP, theater mode, autoplay control & a buffer/speed HUD for YouTube." },
+
+  "singlePlayback": { "message": "Single Playback" },
+  "singlePlaybackDesc": { "message": "Auto-pause background YouTube tabs" },
+  "disablePip": { "message": "Disable Picture-in-Picture" },
+  "disablePipDesc": { "message": "Block PiP button and API" },
+  "theaterMode": { "message": "Theater Mode" },
+  "theaterModeDesc": { "message": "Default to wide player layout" },
+  "bufferHud": { "message": "Buffer + Speed HUD" },
+  "bufferHudDesc": { "message": "Show buffer health & download speed in the control bar" },
+  "autoplay": { "message": "Autoplay" },
+  "autoplayDesc": { "message": "Control YouTube's autoplay-next toggle" },
+
+  "autoQuality": { "message": "Auto Quality" },
+  "enableAutoHd": { "message": "Enable Auto HD" },
+  "enableAutoHdDesc": { "message": "Set quality automatically on load" },
+  "preferredQuality": { "message": "Preferred Quality" },
+  "preferredFps": { "message": "Preferred FPS" },
+  "allowFallback": { "message": "Allow Fallback" },
+  "allowFallbackDesc": { "message": "Use lower quality if preferred unavailable" },
+
+  "hudAmple": { "message": "Buffer ample" },
+  "hudHealthy": { "message": "Buffer healthy" },
+  "hudOk": { "message": "Buffer ok" },
+  "hudLow": { "message": "Buffer low" },
+  "hudDanger": { "message": "Buffer critical" }
+}

@@ -1,0 +1,29 @@
+{
+  "extName": { "message": "TubeWizard" },
+  "extDesc": { "message": "单一播放、自动高清/帧率、禁用画中画、影院模式、自动播放控制，以及缓冲/速度 HUD。" },
+
+  "singlePlayback": { "message": "单一播放" },
+  "singlePlaybackDesc": { "message": "自动暂停后台 YouTube 标签" },
+  "disablePip": { "message": "禁用画中画" },
+  "disablePipDesc": { "message": "拦截画中画按钮与 API" },
+  "theaterMode": { "message": "影院模式" },
+  "theaterModeDesc": { "message": "默认使用宽屏布局" },
+  "bufferHud": { "message": "缓冲 + 速度 HUD" },
+  "bufferHudDesc": { "message": "在控制栏显示缓冲健康度与下载速度" },
+  "autoplay": { "message": "自动播放" },
+  "autoplayDesc": { "message": "同步 YouTube 的「自动播放下一个」开关" },
+
+  "autoQuality": { "message": "自动画质" },
+  "enableAutoHd": { "message": "启用自动高清" },
+  "enableAutoHdDesc": { "message": "加载时自动设置画质" },
+  "preferredQuality": { "message": "偏好画质" },
+  "preferredFps": { "message": "偏好帧率" },
+  "allowFallback": { "message": "允许降级" },
+  "allowFallbackDesc": { "message": "偏好画质不可用时使用较低画质" },
+
+  "hudAmple": { "message": "缓冲充足" },
+  "hudHealthy": { "message": "缓冲健康" },
+  "hudOk": { "message": "缓冲一般" },
+  "hudLow": { "message": "缓冲偏低" },
+  "hudDanger": { "message": "缓冲危险" }
+}

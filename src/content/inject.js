@@ -6,7 +6,7 @@
 
 (() => {
   const QUALITY_ORDER = [
-    "hd2160", "hd1440", "hd1080", "hd720", "large", "medium", "small", "tiny",
+    "hd4320", "hd2160", "hd1440", "hd1080p", "hd1080", "hd720", "large", "medium", "small", "tiny",
   ];
 
   let settings = {
@@ -219,12 +219,18 @@
     return getYtBandwidthBps() ?? getWindowBps();
   }
 
+  // Labels are injected from the isolated world (chrome.i18n); fall back to en.
+  const HUD_FALLBACK = {
+    ample: "Buffer ample", healthy: "Buffer healthy", ok: "Buffer ok",
+    low: "Buffer low", danger: "Buffer critical",
+  };
   function describeBuf(buf) {
-    if (buf >= 30) return { txt: `缓冲充足 ${buf.toFixed(0)}s`, color: "#7CFC9B" };
-    if (buf >= 15) return { txt: `缓冲健康 ${buf.toFixed(0)}s`, color: "#9CE37D" };
-    if (buf >= 8)  return { txt: `缓冲一般 ${buf.toFixed(0)}s`, color: "#FFD93D" };
-    if (buf >= 4)  return { txt: `缓冲偏低 ${buf.toFixed(1)}s`, color: "#FFA64D" };
-    return { txt: `缓冲危险 ${buf.toFixed(1)}s`, color: "#ff6b6b" };
+    const L = settings._hud || HUD_FALLBACK;
+    if (buf >= 30) return { txt: `${L.ample} ${buf.toFixed(0)}s`, color: "#7CFC9B" };
+    if (buf >= 15) return { txt: `${L.healthy} ${buf.toFixed(0)}s`, color: "#9CE37D" };
+    if (buf >= 8)  return { txt: `${L.ok} ${buf.toFixed(0)}s`, color: "#FFD93D" };
+    if (buf >= 4)  return { txt: `${L.low} ${buf.toFixed(1)}s`, color: "#FFA64D" };
+    return { txt: `${L.danger} ${buf.toFixed(1)}s`, color: "#ff6b6b" };
   }
   const fmtBps = (b) => (!b ? "... Mbps" : `${(b / 1e6).toFixed(1)} Mbps`);
 

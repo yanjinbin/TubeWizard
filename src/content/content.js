@@ -33,9 +33,35 @@ function safeSendMessage(message) {
   }
 }
 
+// Localized HUD labels — the MAIN world script can't call chrome.i18n, so we
+// resolve them here (isolated world) and pass them along with the settings.
+async function fetchMessages(lang) {
+  try {
+    const url = chrome.runtime.getURL(`_locales/${lang}/messages.json`);
+    const json = await (await fetch(url)).json();
+    return Object.fromEntries(Object.entries(json).map(([k, v]) => [k, v.message]));
+  } catch {
+    return null;
+  }
+}
+
+async function hudLabels() {
+  const { lang = "" } = await chrome.storage.sync.get("lang");
+  const msgs = lang ? await fetchMessages(lang) : null;
+  const m = (k) => msgs?.[k] ?? chrome.i18n.getMessage(k);
+  return {
+    ample: m("hudAmple"),
+    healthy: m("hudHealthy"),
+    ok: m("hudOk"),
+    low: m("hudLow"),
+    danger: m("hudDanger"),
+  };
+}
+
 // Push settings down to the MAIN world script
-function broadcastSettings() {
-  window.dispatchEvent(new CustomEvent("yte:settings", { detail: settings }));
+async function broadcastSettings() {
+  const detail = { ...settings, _hud: await hudLabels() };
+  window.dispatchEvent(new CustomEvent("yte:settings", { detail }));
 }
 
 // Load stored settings, then announce to MAIN world
