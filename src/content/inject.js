@@ -169,29 +169,57 @@
   // Adapted from the "YouTube 缓冲 + 速度 HUD" userscript. Instead of a draggable
   // floating overlay, the readout is inserted into .ytp-right-controls so it sits
   // at the right side of the control bar, just after YouTube's own buttons.
-  const HUD_DECAY = 0.55;
-  let liveBps = 0;
   let speedObserverStarted = false;
   let hudEl = null, hudBuf = null, hudSpd = null, hudTimer = null;
 
-  // Zero extra I/O: read bytes/duration straight from the browser's resource
-  // timing entries for videoplayback requests.
+  // Rolling log of {t, bytes} for videoplayback fetches (fallback estimate).
+  const WINDOW_MS = 5000;
+  const byteLog = [];
+
+  // Zero extra I/O: record bytes downloaded per videoplayback request, timestamped
+  // by wall-clock arrival, so we can average throughput over a real time window.
   function startSpeedObserver() {
     if (speedObserverStarted) return;
     speedObserverStarted = true;
     try {
       new PerformanceObserver((list) => {
+        const now = performance.now();
         for (const e of list.getEntries()) {
           if (!/videoplayback/.test(e.name)) continue;
           const bytes = e.transferSize || e.encodedBodySize || 0;
-          const dt = e.duration / 1000;
-          if (bytes > 0 && dt > 0.02) {
-            const b = (bytes * 8) / dt;
-            liveBps = liveBps ? liveBps * HUD_DECAY + b * (1 - HUD_DECAY) : b;
-          }
+          if (bytes > 0) byteLog.push({ t: now, bytes });
         }
       }).observe({ type: "resource", buffered: true });
     } catch { /* PerformanceObserver unsupported */ }
+  }
+
+  // Preferred: YouTube's own connection-bandwidth estimate (matches the
+  // "Connection Speed" line in Stats for nerds). Returns bits/sec or null.
+  function getYtBandwidthBps() {
+    const player = getPlayer();
+    const stats = player?.getStatsForNerds?.();
+    if (!stats) return null;
+    // Across player versions the field has been bandwidth_kbps / bandwidthKbps,
+    // value like "25261.624" (kbps) — sometimes with thousands separators/units.
+    const raw = stats.bandwidth_kbps ?? stats.bandwidthKbps ?? stats.bandwidth;
+    if (raw == null) return null;
+    const kbps = parseFloat(String(raw).replace(/[^0-9.]/g, ""));
+    return kbps > 0 ? kbps * 1000 : null;
+  }
+
+  // Fallback: average throughput over the last WINDOW_MS of real time.
+  function getWindowBps() {
+    const cutoff = performance.now() - WINDOW_MS;
+    let bytes = 0;
+    while (byteLog.length && byteLog[0].t < cutoff) byteLog.shift();
+    for (const e of byteLog) bytes += e.bytes;
+    if (bytes === 0) return 0;
+    return (bytes * 8) / (WINDOW_MS / 1000);
+  }
+
+  // Speed shown by the HUD: YouTube's estimate when available, else the window avg.
+  function currentSpeedBps() {
+    return getYtBandwidthBps() ?? getWindowBps();
   }
 
   function describeBuf(buf) {
@@ -263,7 +291,7 @@
     const d = describeBuf(buf);
     hudBuf.textContent = d.txt;
     hudBuf.style.color = d.color;
-    hudSpd.textContent = fmtBps(liveBps);
+    hudSpd.textContent = fmtBps(currentSpeedBps());
   }
 
   // ─── Autoplay toggle ───────────────────────────────────────────────────────
