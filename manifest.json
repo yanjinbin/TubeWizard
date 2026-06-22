@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "TubeWizard",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Single playback, auto HD/FPS, disable PiP, theater mode, autoplay control & a buffer/speed HUD for YouTube.",
   "permissions": [
     "tabs",

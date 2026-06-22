@@ -1,0 +1,52 @@
+name: Release
+
+# Trigger by pushing a version tag, e.g. `git tag v1.1.0 && git push origin v1.1.0`
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Resolve version
+        id: ver
+        run: echo "version=${GITHUB_REF_NAME#v}" >> "$GITHUB_OUTPUT"
+
+      - name: Verify manifest version matches tag
+        run: |
+          MANIFEST_VERSION=$(node -p "require('./manifest.json').version")
+          if [ "$MANIFEST_VERSION" != "${{ steps.ver.outputs.version }}" ]; then
+            echo "::error::manifest.json version ($MANIFEST_VERSION) != tag (${{ steps.ver.outputs.version }})"
+            exit 1
+          fi
+
+      - name: Package extension
+        run: |
+          VERSION="${{ steps.ver.outputs.version }}"
+          OUT="dist/tubewizard"
+          mkdir -p "$OUT/src"
+          cp manifest.json "$OUT/"
+          cp -r icons "$OUT/"
+          cp -r src/background src/content src/popup "$OUT/src/"
+          # strip dev-only assets that aren't part of the shipped extension
+          rm -f "$OUT"/src/popup/promo.html \
+                "$OUT"/src/popup/icon.html \
+                "$OUT"/src/popup/icon.svg.html \
+                "$OUT"/src/popup/popup-demo.html
+          (cd "$OUT" && zip -r "../tubewizard-${VERSION}.zip" .)
+          echo "--- package contents ---"
+          unzip -l "dist/tubewizard-${VERSION}.zip"
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: TubeWizard v${{ steps.ver.outputs.version }}
+          files: dist/tubewizard-*.zip
+          generate_release_notes: true
