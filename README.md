@@ -6,23 +6,24 @@
 
 **Power-ups for YouTube — single playback, auto HD/FPS, and more.**
 
-All local · zero data collection · no account needed.
+`All local` · `zero data collection` · `no account needed`
 
 </div>
 
 ---
 
-## Screenshots
-
-<div align="center">
-
-<img src="store-assets/screenshot.png" alt="TubeWizard on a YouTube watch page" width="80%" />
-
-<br /><br />
-
-<img src="store-assets/options.png" alt="TubeWizard options panel" width="300" />
-
-</div>
+<table>
+  <tr>
+    <td width="65%" valign="top">
+      <img src="store-assets/screenshot.png" alt="TubeWizard on a YouTube watch page" width="100%" />
+      <p align="center"><sub>Auto HD + Buffer / Speed HUD on a watch page</sub></p>
+    </td>
+    <td width="35%" valign="top">
+      <img src="store-assets/options.png" alt="TubeWizard options panel" width="100%" />
+      <p align="center"><sub>One-click settings popup</sub></p>
+    </td>
+  </tr>
+</table>
 
 ## Features
 
