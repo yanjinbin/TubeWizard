@@ -11,5 +11,9 @@ _*.png
 # Editor / tooling
 .claude/
 
+# Vercel
+.vercel-deploy/
+.vercel/
+
 # Icon generation helper (icons are committed as PNGs)
 generate-icons.js

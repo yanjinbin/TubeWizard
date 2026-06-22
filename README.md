@@ -1,16 +1,12 @@
 <div align="center">
 
-<img src="store-assets/icon.png" width="96" alt="TubeWizard icon" />
+<img src="store-assets/icon.png" width="120" alt="TubeWizard logo" />
 
 # TubeWizard
 
 **Power-ups for YouTube — single playback, auto HD/FPS, and more.**
 
 All local · zero data collection · no account needed.
-
-<br />
-
-<img src="store-assets/banner.png" alt="TubeWizard banner" width="100%" />
 
 </div>
 
