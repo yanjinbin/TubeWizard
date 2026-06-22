@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>TubeWizard</title>
+  <link rel="stylesheet" href="popup.css" />
+  <style>body{width:340px}</style>
+</head>
+<body>
+  <header>
+    <span class="logo">▶</span>
+    <h1>TubeWizard</h1>
+  </header>
+
+  <section class="card">
+    <div class="row">
+      <div class="label"><strong>Single Playback</strong><span>Auto-pause background YouTube tabs</span></div>
+      <label class="toggle"><input type="checkbox" checked /><span class="slider"></span></label>
+    </div>
+    <div class="row">
+      <div class="label"><strong>Disable Picture-in-Picture</strong><span>Block PiP button and API</span></div>
+      <label class="toggle"><input type="checkbox" checked /><span class="slider"></span></label>
+    </div>
+    <div class="row">
+      <div class="label"><strong>Theater Mode</strong><span>Default to wide player layout</span></div>
+      <label class="toggle"><input type="checkbox" checked /><span class="slider"></span></label>
+    </div>
+    <div class="row">
+      <div class="label"><strong>Buffer + Speed HUD</strong><span>Show buffer health & download speed in the control bar</span></div>
+      <label class="toggle"><input type="checkbox" checked /><span class="slider"></span></label>
+    </div>
+    <div class="row">
+      <div class="label"><strong>Autoplay</strong><span>Control YouTube's autoplay-next toggle</span></div>
+      <label class="toggle"><input type="checkbox" /><span class="slider"></span></label>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Auto Quality</h2>
+    <div class="row">
+      <div class="label"><strong>Enable Auto HD</strong><span>Set quality automatically on load</span></div>
+      <label class="toggle"><input type="checkbox" checked /><span class="slider"></span></label>
+    </div>
+    <div class="field">
+      <label>Preferred Quality</label>
+      <select><option>4K (2160p)</option></select>
+      <label>Preferred FPS</label>
+      <select><option>60 fps</option></select>
+      <div class="row top-gap">
+        <div class="label"><strong>Allow Fallback</strong><span>Use lower quality if preferred unavailable</span></div>
+        <label class="toggle"><input type="checkbox" checked /><span class="slider"></span></label>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

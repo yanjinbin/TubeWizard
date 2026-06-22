@@ -16,10 +16,16 @@ All local · zero data collection · no account needed.
 
 ---
 
-## Screenshot
+## Screenshots
 
 <div align="center">
-  <img src="store-assets/screenshot.png" alt="TubeWizard screenshot" width="80%" />
+
+<img src="store-assets/screenshot.png" alt="TubeWizard on a YouTube watch page" width="80%" />
+
+<br /><br />
+
+<img src="store-assets/options.png" alt="TubeWizard options panel" width="300" />
+
 </div>
 
 ## Features
