@@ -33,9 +33,6 @@
     scheduleAutoplayBlock();// sync YouTube's "autoplay next" toggle
   });
 
-  // We may load before the isolated script broadcasts; ask for current settings.
-  window.dispatchEvent(new CustomEvent("yte:request-settings"));
-
   // ─── Feature 2: disable Picture-in-Picture ─────────────────────────────────
   function installPipBlock() {
     if (pipInstalled) return;
@@ -322,10 +319,14 @@
 
   // ─── SPA navigation ────────────────────────────────────────────────────────
   document.addEventListener("yt-navigate-finish", () => {
-    userStartedThisPage = false;
     scheduleQuality();
     scheduleTheater();
     scheduleHud();
     scheduleAutoplayBlock();
   });
+
+  // All state above is now initialized — safe to ask the isolated script for the
+  // current settings (it replies synchronously via a "yte:settings" event, which
+  // would hit the temporal dead zone if dispatched before the declarations).
+  window.dispatchEvent(new CustomEvent("yte:request-settings"));
 })();
