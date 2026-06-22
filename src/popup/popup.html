@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TubeWizard</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <header>
+    <span class="logo">▶</span>
+    <h1>TubeWizard</h1>
+  </header>
+
+  <section class="card">
+    <div class="row">
+      <div class="label">
+        <strong>Single Playback</strong>
+        <span>Auto-pause background YouTube tabs</span>
+      </div>
+      <label class="toggle">
+        <input type="checkbox" id="singlePlayback" />
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="row">
+      <div class="label">
+        <strong>Disable Picture-in-Picture</strong>
+        <span>Block PiP button and API</span>
+      </div>
+      <label class="toggle">
+        <input type="checkbox" id="disablePip" />
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="row">
+      <div class="label">
+        <strong>Theater Mode</strong>
+        <span>Default to wide player layout</span>
+      </div>
+      <label class="toggle">
+        <input type="checkbox" id="theaterMode" />
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="row">
+      <div class="label">
+        <strong>Buffer + Speed HUD</strong>
+        <span>Show buffer health & download speed in the control bar</span>
+      </div>
+      <label class="toggle">
+        <input type="checkbox" id="bufferHud" />
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="row">
+      <div class="label">
+        <strong>Autoplay</strong>
+        <span>Control YouTube's autoplay-next toggle</span>
+      </div>
+      <label class="toggle">
+        <input type="checkbox" id="autoplay" />
+        <span class="slider"></span>
+      </label>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Auto Quality</h2>
+
+    <div class="row">
+      <div class="label">
+        <strong>Enable Auto HD</strong>
+        <span>Set quality automatically on load</span>
+      </div>
+      <label class="toggle">
+        <input type="checkbox" id="autoQuality" />
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="field" id="qualityOptions">
+      <label for="preferredQuality">Preferred Quality</label>
+      <select id="preferredQuality">
+        <option value="hd2160">4K (2160p)</option>
+        <option value="hd1440">1440p</option>
+        <option value="hd1080">1080p</option>
+        <option value="hd720">720p</option>
+        <option value="large">480p</option>
+        <option value="medium">360p</option>
+        <option value="small">240p</option>
+        <option value="tiny">144p</option>
+      </select>
+
+      <label for="preferredFps">Preferred FPS</label>
+      <select id="preferredFps">
+        <option value="60">60 fps</option>
+        <option value="30">30 fps</option>
+      </select>
+
+      <div class="row top-gap">
+        <div class="label">
+          <strong>Allow Fallback</strong>
+          <span>Use lower quality if preferred unavailable</span>
+        </div>
+        <label class="toggle">
+          <input type="checkbox" id="autoQualityFallback" />
+          <span class="slider"></span>
+        </label>
+      </div>
+    </div>
+  </section>
+
+  <script src="popup.js"></script>
+</body>
+</html>

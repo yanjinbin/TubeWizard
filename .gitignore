@@ -1,0 +1,15 @@
+# Build artifacts
+*.zip
+
+# Generated/preview screenshots
+store-screenshot-*.png
+_*.png
+
+# OS files
+.DS_Store
+
+# Editor / tooling
+.claude/
+
+# Icon generation helper (icons are committed as PNGs)
+generate-icons.js

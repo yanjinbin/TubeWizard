@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1280px; height: 800px; overflow: hidden; }
+  body {
+    display: flex;
+    align-items: center;
+    gap: 70px;
+    padding: 0 80px;
+    background: radial-gradient(1200px 700px at 18% 20%, #2a0d0d 0%, #120607 45%, #0a0a0c 100%);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", sans-serif;
+    color: #fff;
+  }
+
+  /* ── Left: marketing copy ── */
+  .copy { flex: 1; }
+  .brand { display: flex; align-items: center; gap: 14px; margin-bottom: 34px; }
+  .brand .logo { font-size: 40px; color: #ff2d2d; }
+  .brand h1 { font-size: 34px; font-weight: 700; letter-spacing: -0.5px; }
+  .headline { font-size: 52px; font-weight: 800; line-height: 1.15; margin-bottom: 28px; }
+  .headline .hl { color: #ff4747; }
+  .features { list-style: none; display: flex; flex-direction: column; gap: 16px; }
+  .features li { display: flex; align-items: center; gap: 14px; font-size: 21px; color: #d6d6d8; }
+  .features .dot {
+    width: 26px; height: 26px; border-radius: 50%;
+    background: rgba(255,71,71,0.15); color: #ff5a5a;
+    display: grid; place-items: center; font-size: 15px; flex-shrink: 0;
+  }
+  .tagline { margin-top: 34px; font-size: 17px; color: #8a8a90; }
+
+  /* ── Right: popup mockup ── */
+  .popup {
+    width: 360px;
+    background: #0f0f0f;
+    border: 1px solid #272727;
+    border-radius: 16px;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+    padding-bottom: 14px;
+    flex-shrink: 0;
+  }
+  .pheader { display: flex; align-items: center; gap: 9px; padding: 16px 18px 14px; border-bottom: 1px solid #272727; }
+  .pheader .logo { font-size: 20px; color: #ff0000; }
+  .pheader h2 { font-size: 16px; font-weight: 600; }
+  .card { margin: 12px 14px 0; background: #1a1a1a; border-radius: 12px; padding: 6px 16px; }
+  .row { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 13px 0; }
+  .row + .row { border-top: 1px solid #272727; }
+  .lbl strong { display: block; font-size: 14px; }
+  .lbl span { display: block; font-size: 11px; color: #888; margin-top: 2px; }
+  .sw { width: 40px; height: 22px; border-radius: 22px; position: relative; flex-shrink: 0; background: #444; }
+  .sw.on { background: #ff0000; }
+  .sw::after { content:""; position:absolute; width:16px; height:16px; border-radius:50%; background:#fff; top:3px; left:3px; transition:none; }
+  .sw.on::after { left: 21px; }
+  .ctitle { font-size: 11px; font-weight: 600; letter-spacing: 0.06em; color: #aaa; text-transform: uppercase; padding: 10px 0 2px; }
+  .sel { width: 100%; background:#272727; border:1px solid #383838; border-radius:6px; padding:7px 10px; font-size:13px; color:#e8e8e8; margin-top:6px; display:flex; justify-content:space-between; }
+  .sel .car { color:#888; }
+  .flbl { font-size:11px; color:#888; margin-top:10px; }
+</style>
+</head>
+<body>
+  <div class="copy">
+    <div class="brand"><span class="logo">▶</span><h1>TubeWizard</h1></div>
+    <div class="headline">一次装好<br>全部 <span class="hl">播放器魔法</span></div>
+    <ul class="features">
+      <li><span class="dot">✓</span>全局只播放一个 YouTube 标签</li>
+      <li><span class="dot">✓</span>自动高清 + 帧率（最高 4K / 60fps）</li>
+      <li><span class="dot">✓</span>禁用画中画 · 默认影院模式</li>
+      <li><span class="dot">✓</span>自动播放控制 · 缓冲/速度 HUD</li>
+    </ul>
+    <div class="tagline">本地运行 · 零数据收集 · 无需登录</div>
+  </div>
+
+  <div class="popup">
+    <div class="pheader"><span class="logo">▶</span><h2>TubeWizard</h2></div>
+    <div class="card">
+      <div class="row"><div class="lbl"><strong>Single Playback</strong><span>Auto-pause background YouTube tabs</span></div><div class="sw on"></div></div>
+      <div class="row"><div class="lbl"><strong>Disable Picture-in-Picture</strong><span>Block PiP button and API</span></div><div class="sw on"></div></div>
+      <div class="row"><div class="lbl"><strong>Theater Mode</strong><span>Default to wide player layout</span></div><div class="sw on"></div></div>
+      <div class="row"><div class="lbl"><strong>Buffer + Speed HUD</strong><span>Buffer health & download speed</span></div><div class="sw on"></div></div>
+      <div class="row"><div class="lbl"><strong>Autoplay</strong><span>Control YouTube's autoplay-next</span></div><div class="sw"></div></div>
+    </div>
+    <div class="card">
+      <div class="ctitle">Auto Quality</div>
+      <div class="row"><div class="lbl"><strong>Enable Auto HD</strong><span>Set quality automatically on load</span></div><div class="sw on"></div></div>
+      <div class="flbl">Preferred Quality</div>
+      <div class="sel"><span>4K (2160p)</span><span class="car">▾</span></div>
+      <div class="flbl">Preferred FPS</div>
+      <div class="sel"><span>60 fps</span><span class="car">▾</span></div>
+    </div>
+  </div>
+</body>
+</html>
