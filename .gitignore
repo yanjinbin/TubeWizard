@@ -17,3 +17,5 @@ _*.png
 
 # Icon generation helper (icons are committed as PNGs)
 generate-icons.js
+**/**/.idea
+**/**/node_modules
