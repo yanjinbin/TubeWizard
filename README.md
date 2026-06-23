@@ -41,6 +41,12 @@
 - **Buffer + Speed HUD** — Optional live buffer health and download speed in the
   player control bar, with zero extra network usage.
 
+## Install
+
+[![Chrome Web Store](https://img.shields.io/chrome-web-store/v/faakolhpbnmoigcbikohccldhmagmflm?label=Chrome%20Web%20Store)](https://chromewebstore.google.com/detail/tubewizard/faakolhpbnmoigcbikohccldhmagmflm)
+
+[**Install from Chrome Web Store →**](https://chromewebstore.google.com/detail/tubewizard/faakolhpbnmoigcbikohccldhmagmflm)
+
 ## Install (development)
 
 1. Open `chrome://extensions/`
