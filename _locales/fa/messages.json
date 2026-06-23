@@ -1,0 +1,29 @@
+{
+  "extName": { "message": "TubeWizard" },
+  "extDesc": { "message": "پخش تکی، HD/FPS خودکار، غیرفعال‌سازی PiP، حالت تئاتر، کنترل پخش خودکار و HUD بافر/سرعت برای یوتیوب." },
+
+  "singlePlayback": { "message": "پخش تکی" },
+  "singlePlaybackDesc": { "message": "مکث خودکار تب‌های یوتیوب در پس‌زمینه" },
+  "disablePip": { "message": "غیرفعال کردن تصویر در تصویر" },
+  "disablePipDesc": { "message": "مسدود کردن دکمه PiP و API" },
+  "theaterMode": { "message": "حالت تئاتر" },
+  "theaterModeDesc": { "message": "استفاده پیش‌فرض از چیدمان پخش‌کننده عریض" },
+  "bufferHud": { "message": "HUD بافر و سرعت" },
+  "bufferHudDesc": { "message": "نمایش وضعیت بافر و سرعت دانلود در نوار کنترل" },
+  "autoplay": { "message": "پخش خودکار" },
+  "autoplayDesc": { "message": "کنترل گزینه پخش خودکار یوتیوب" },
+
+  "autoQuality": { "message": "کیفیت خودکار" },
+  "enableAutoHd": { "message": "فعال‌سازی HD خودکار" },
+  "enableAutoHdDesc": { "message": "تنظیم خودکار کیفیت هنگام بارگذاری" },
+  "preferredQuality": { "message": "کیفیت ترجیحی" },
+  "preferredFps": { "message": "FPS ترجیحی" },
+  "allowFallback": { "message": "اجازه بازگشت" },
+  "allowFallbackDesc": { "message": "استفاده از کیفیت پایین‌تر اگر کیفیت ترجیحی موجود نباشد" },
+
+  "hudAmple": { "message": "بافر فراوان" },
+  "hudHealthy": { "message": "بافر سالم" },
+  "hudOk": { "message": "بافر قابل قبول" },
+  "hudLow": { "message": "بافر کم" },
+  "hudDanger": { "message": "بافر بحرانی" }
+}

@@ -1,0 +1,29 @@
+{
+  "extName": { "message": "TubeWizard" },
+  "extDesc": { "message": "Reproducción única, HD/FPS automático, deshabilitar PiP, modo teatro, control de reproducción automática y HUD de búfer/velocidad para YouTube." },
+
+  "singlePlayback": { "message": "Reproducción única" },
+  "singlePlaybackDesc": { "message": "Pausar automáticamente pestañas de YouTube en segundo plano" },
+  "disablePip": { "message": "Deshabilitar imagen en imagen" },
+  "disablePipDesc": { "message": "Bloquear el botón PiP y la API" },
+  "theaterMode": { "message": "Modo teatro" },
+  "theaterModeDesc": { "message": "Usar diseño de reproductor ancho por defecto" },
+  "bufferHud": { "message": "HUD de búfer y velocidad" },
+  "bufferHudDesc": { "message": "Mostrar estado del búfer y velocidad de descarga en la barra de control" },
+  "autoplay": { "message": "Reproducción automática" },
+  "autoplayDesc": { "message": "Controlar el interruptor de reproducción automática de YouTube" },
+
+  "autoQuality": { "message": "Calidad automática" },
+  "enableAutoHd": { "message": "Activar HD automático" },
+  "enableAutoHdDesc": { "message": "Establecer calidad automáticamente al cargar" },
+  "preferredQuality": { "message": "Calidad preferida" },
+  "preferredFps": { "message": "FPS preferidos" },
+  "allowFallback": { "message": "Permitir alternativa" },
+  "allowFallbackDesc": { "message": "Usar calidad inferior si la preferida no está disponible" },
+
+  "hudAmple": { "message": "Búfer amplio" },
+  "hudHealthy": { "message": "Búfer saludable" },
+  "hudOk": { "message": "Búfer aceptable" },
+  "hudLow": { "message": "Búfer bajo" },
+  "hudDanger": { "message": "Búfer crítico" }
+}

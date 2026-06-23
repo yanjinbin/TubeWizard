@@ -1,0 +1,29 @@
+{
+  "extName": { "message": "TubeWizard" },
+  "extDesc": { "message": "Lecture unique, HD/FPS auto, désactivation PiP, mode cinéma, contrôle de lecture automatique et HUD tampon/vitesse pour YouTube." },
+
+  "singlePlayback": { "message": "Lecture unique" },
+  "singlePlaybackDesc": { "message": "Mettre en pause automatiquement les onglets YouTube en arrière-plan" },
+  "disablePip": { "message": "Désactiver incrustation vidéo" },
+  "disablePipDesc": { "message": "Bloquer le bouton PiP et l'API" },
+  "theaterMode": { "message": "Mode cinéma" },
+  "theaterModeDesc": { "message": "Utiliser la mise en page large par défaut" },
+  "bufferHud": { "message": "HUD tampon et vitesse" },
+  "bufferHudDesc": { "message": "Afficher l'état du tampon et la vitesse de téléchargement dans la barre de contrôle" },
+  "autoplay": { "message": "Lecture automatique" },
+  "autoplayDesc": { "message": "Contrôler le bouton de lecture automatique de YouTube" },
+
+  "autoQuality": { "message": "Qualité automatique" },
+  "enableAutoHd": { "message": "Activer le HD automatique" },
+  "enableAutoHdDesc": { "message": "Définir la qualité automatiquement au chargement" },
+  "preferredQuality": { "message": "Qualité préférée" },
+  "preferredFps": { "message": "FPS préférés" },
+  "allowFallback": { "message": "Autoriser le repli" },
+  "allowFallbackDesc": { "message": "Utiliser une qualité inférieure si la préférée est indisponible" },
+
+  "hudAmple": { "message": "Tampon ample" },
+  "hudHealthy": { "message": "Tampon sain" },
+  "hudOk": { "message": "Tampon correct" },
+  "hudLow": { "message": "Tampon faible" },
+  "hudDanger": { "message": "Tampon critique" }
+}

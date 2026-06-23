@@ -1,0 +1,29 @@
+{
+  "extName": { "message": "TubeWizard" },
+  "extDesc": { "message": "Uchezaji mmoja, HD/FPS otomatiki, zima PiP, hali ya ukumbi, udhibiti wa kucheza kiotomatiki na HUD ya bafa/kasi kwa YouTube." },
+
+  "singlePlayback": { "message": "Uchezaji mmoja" },
+  "singlePlaybackDesc": { "message": "Simama kiotomatiki vichupo vya YouTube vilivyo nyuma" },
+  "disablePip": { "message": "Zima picha ndani ya picha" },
+  "disablePipDesc": { "message": "Zuia kitufe cha PiP na API" },
+  "theaterMode": { "message": "Hali ya ukumbi" },
+  "theaterModeDesc": { "message": "Tumia mpangilio mpana wa mchezaji kwa chaguo-msingi" },
+  "bufferHud": { "message": "HUD ya bafa na kasi" },
+  "bufferHudDesc": { "message": "Onyesha hali ya bafa na kasi ya upakuaji kwenye upau wa udhibiti" },
+  "autoplay": { "message": "Kucheza kiotomatiki" },
+  "autoplayDesc": { "message": "Dhibiti kubadili kucheza kiotomatiki kwa YouTube" },
+
+  "autoQuality": { "message": "Ubora otomatiki" },
+  "enableAutoHd": { "message": "Wezesha HD otomatiki" },
+  "enableAutoHdDesc": { "message": "Weka ubora kiotomatiki wakati wa kupakia" },
+  "preferredQuality": { "message": "Ubora unaopendelewa" },
+  "preferredFps": { "message": "FPS inayopendelewa" },
+  "allowFallback": { "message": "Ruhusu mbadala" },
+  "allowFallbackDesc": { "message": "Tumia ubora wa chini ikiwa unaopendwa haupatikani" },
+
+  "hudAmple": { "message": "Bafa tele" },
+  "hudHealthy": { "message": "Bafa nzuri" },
+  "hudOk": { "message": "Bafa sawa" },
+  "hudLow": { "message": "Bafa chini" },
+  "hudDanger": { "message": "Bafa hatari" }
+}

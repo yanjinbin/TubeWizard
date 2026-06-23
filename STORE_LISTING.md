@@ -47,7 +47,7 @@ settings stay in your browser.
 Productivity
 
 ### Language
-English, 简体中文
+English, 简体中文, 繁體中文, 日本語, 한국어, Español, Français, Português, Bahasa Indonesia, العربية, فارسی, Kiswahili, Yorùbá, Igbo
 
 ---
 
@@ -89,7 +89,7 @@ TubeWizard集合了重度用户真正需要的播放器增强功能——全部�
 效率
 
 ### 语言
-English, 简体中文
+English, 简体中文, 繁體中文, 日本語, 한국어, Español, Français, Português, Bahasa Indonesia, العربية, فارسی, Kiswahili, Yorùbá, Igbo
 
 ---
 

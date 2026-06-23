@@ -1,0 +1,29 @@
+{
+  "extName": { "message": "TubeWizard" },
+  "extDesc": { "message": "تشغيل أحادي، جودة HD تلقائية، تعطيل PiP، وضع المسرح، التحكم في التشغيل التلقائي، وشاشة HUD للمخزن المؤقت والسرعة على يوتيوب." },
+
+  "singlePlayback": { "message": "تشغيل أحادي" },
+  "singlePlaybackDesc": { "message": "إيقاف تشغيل علامات تبويب يوتيوب في الخلفية تلقائياً" },
+  "disablePip": { "message": "تعطيل الصورة داخل الصورة" },
+  "disablePipDesc": { "message": "حظر زر PiP والـ API" },
+  "theaterMode": { "message": "وضع المسرح" },
+  "theaterModeDesc": { "message": "الافتراضي لتخطيط المشغّل العريض" },
+  "bufferHud": { "message": "HUD للمخزن المؤقت والسرعة" },
+  "bufferHudDesc": { "message": "عرض صحة المخزن المؤقت وسرعة التنزيل في شريط التحكم" },
+  "autoplay": { "message": "التشغيل التلقائي" },
+  "autoplayDesc": { "message": "التحكم في خيار تشغيل الفيديو التالي تلقائياً في يوتيوب" },
+
+  "autoQuality": { "message": "جودة تلقائية" },
+  "enableAutoHd": { "message": "تفعيل HD التلقائي" },
+  "enableAutoHdDesc": { "message": "ضبط الجودة تلقائياً عند التحميل" },
+  "preferredQuality": { "message": "الجودة المفضّلة" },
+  "preferredFps": { "message": "معدل الإطارات المفضّل" },
+  "allowFallback": { "message": "السماح بالتراجع" },
+  "allowFallbackDesc": { "message": "استخدام جودة أقل إذا لم تتوفر الجودة المفضّلة" },
+
+  "hudAmple": { "message": "مخزن وفير" },
+  "hudHealthy": { "message": "مخزن جيد" },
+  "hudOk": { "message": "مخزن مقبول" },
+  "hudLow": { "message": "مخزن منخفض" },
+  "hudDanger": { "message": "مخزن حرج" }
+}

@@ -1,0 +1,29 @@
+{
+  "extName": { "message": "TubeWizard" },
+  "extDesc": { "message": "Ṣiṣere kan ṣoṣo, HD/FPS aifọwọyi, pa PiP, ipo ile-iṣere, iṣakoso ṣiṣere aifọwọyi ati HUD ifipamọ/iyara fun YouTube." },
+
+  "singlePlayback": { "message": "Ṣiṣere kan ṣoṣo" },
+  "singlePlaybackDesc": { "message": "Da duro laifọwọyi awọn taabu YouTube ni ẹhin" },
+  "disablePip": { "message": "Pa aworan ninu aworan" },
+  "disablePipDesc": { "message": "Dènà bọtini PiP ati API" },
+  "theaterMode": { "message": "Ipo ile-iṣere" },
+  "theaterModeDesc": { "message": "Lo apẹrẹ ẹrọ orin gbooro ni aiyipada" },
+  "bufferHud": { "message": "HUD ifipamọ ati iyara" },
+  "bufferHudDesc": { "message": "Ṣafihan ilera ifipamọ ati iyara igbasilẹ lori ọpa iṣakoso" },
+  "autoplay": { "message": "Ṣiṣere aifọwọyi" },
+  "autoplayDesc": { "message": "Ṣakoso iyipada ṣiṣere-t'okan ti YouTube" },
+
+  "autoQuality": { "message": "Didara aifọwọyi" },
+  "enableAutoHd": { "message": "Mu HD aifọwọyi ṣiṣẹ" },
+  "enableAutoHdDesc": { "message": "Ṣeto didara laifọwọyi lakoko gbigba" },
+  "preferredQuality": { "message": "Didara ayanfẹ" },
+  "preferredFps": { "message": "FPS ayanfẹ" },
+  "allowFallback": { "message": "Gba iyipada laaye" },
+  "allowFallbackDesc": { "message": "Lo didara kekere ti ayanfẹ ko si" },
+
+  "hudAmple": { "message": "Ifipamọ to po" },
+  "hudHealthy": { "message": "Ifipamọ dara" },
+  "hudOk": { "message": "Ifipamọ to dara" },
+  "hudLow": { "message": "Ifipamọ kekere" },
+  "hudDanger": { "message": "Ifipamọ lewu" }
+}

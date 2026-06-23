@@ -1,0 +1,29 @@
+{
+  "extName": { "message": "TubeWizard" },
+  "extDesc": { "message": "單一播放、自動高清/影格率、停用子母畫面、劇院模式、自動播放控制，以及緩衝/速度 HUD。" },
+
+  "singlePlayback": { "message": "單一播放" },
+  "singlePlaybackDesc": { "message": "自動暫停背景 YouTube 分頁" },
+  "disablePip": { "message": "停用子母畫面" },
+  "disablePipDesc": { "message": "封鎖子母畫面按鈕與 API" },
+  "theaterMode": { "message": "劇院模式" },
+  "theaterModeDesc": { "message": "預設使用寬螢幕播放器版面" },
+  "bufferHud": { "message": "緩衝 + 速度 HUD" },
+  "bufferHudDesc": { "message": "在控制列顯示緩衝健康度與下載速度" },
+  "autoplay": { "message": "自動播放" },
+  "autoplayDesc": { "message": "同步 YouTube 的「自動播放下一部」開關" },
+
+  "autoQuality": { "message": "自動畫質" },
+  "enableAutoHd": { "message": "啟用自動高清" },
+  "enableAutoHdDesc": { "message": "載入時自動設定畫質" },
+  "preferredQuality": { "message": "偏好畫質" },
+  "preferredFps": { "message": "偏好影格率" },
+  "allowFallback": { "message": "允許降級" },
+  "allowFallbackDesc": { "message": "偏好畫質不可用時改用較低畫質" },
+
+  "hudAmple": { "message": "緩衝充足" },
+  "hudHealthy": { "message": "緩衝健康" },
+  "hudOk": { "message": "緩衝一般" },
+  "hudLow": { "message": "緩衝偏低" },
+  "hudDanger": { "message": "緩衝危險" }
+}

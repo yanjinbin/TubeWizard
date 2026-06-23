@@ -1,0 +1,29 @@
+{
+  "extName": { "message": "TubeWizard" },
+  "extDesc": { "message": "Pemutaran tunggal, HD/FPS otomatis, nonaktifkan PiP, mode bioskop, kontrol putar otomatis, dan HUD buffer/kecepatan untuk YouTube." },
+
+  "singlePlayback": { "message": "Pemutaran tunggal" },
+  "singlePlaybackDesc": { "message": "Jeda otomatis tab YouTube di latar belakang" },
+  "disablePip": { "message": "Nonaktifkan gambar-dalam-gambar" },
+  "disablePipDesc": { "message": "Blokir tombol PiP dan API" },
+  "theaterMode": { "message": "Mode bioskop" },
+  "theaterModeDesc": { "message": "Gunakan tata letak pemutar lebar secara default" },
+  "bufferHud": { "message": "HUD buffer dan kecepatan" },
+  "bufferHudDesc": { "message": "Tampilkan kesehatan buffer dan kecepatan unduhan di bilah kontrol" },
+  "autoplay": { "message": "Putar otomatis" },
+  "autoplayDesc": { "message": "Kontrol tombol putar otomatis YouTube" },
+
+  "autoQuality": { "message": "Kualitas otomatis" },
+  "enableAutoHd": { "message": "Aktifkan HD otomatis" },
+  "enableAutoHdDesc": { "message": "Setel kualitas secara otomatis saat dimuat" },
+  "preferredQuality": { "message": "Kualitas pilihan" },
+  "preferredFps": { "message": "FPS pilihan" },
+  "allowFallback": { "message": "Izinkan fallback" },
+  "allowFallbackDesc": { "message": "Gunakan kualitas lebih rendah jika pilihan tidak tersedia" },
+
+  "hudAmple": { "message": "Buffer berlimpah" },
+  "hudHealthy": { "message": "Buffer sehat" },
+  "hudOk": { "message": "Buffer cukup" },
+  "hudLow": { "message": "Buffer rendah" },
+  "hudDanger": { "message": "Buffer kritis" }
+}

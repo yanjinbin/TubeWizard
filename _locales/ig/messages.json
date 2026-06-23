@@ -1,0 +1,29 @@
+{
+  "extName": { "message": "TubeWizard" },
+  "extDesc": { "message": "Egwuregwu otu, HD/FPS akpaaka, gbanyụọ PiP, ọnọdụ ụlọ ihe nkiri, njikwa egwuregwu akpaaka na HUD buffer/ọsọ maka YouTube." },
+
+  "singlePlayback": { "message": "Egwuregwu otu" },
+  "singlePlaybackDesc": { "message": "Kwụsị akpaaka mkpọtụ YouTube ndị dị n'azụ" },
+  "disablePip": { "message": "Gbanyụọ onyonyo n'ime onyonyo" },
+  "disablePipDesc": { "message": "Gbochie bọtịnụ PiP na API" },
+  "theaterMode": { "message": "Ọnọdụ ụlọ ihe nkiri" },
+  "theaterModeDesc": { "message": "Jiri nhazi egwuregwu ọvụọvụ dị ka ndabara" },
+  "bufferHud": { "message": "HUD buffer na ọsọ" },
+  "bufferHudDesc": { "message": "Gosi ahụike buffer na ọsọ nbudata na ọkpụkpọ njikwa" },
+  "autoplay": { "message": "Egwuregwu akpaaka" },
+  "autoplayDesc": { "message": "Jikwaa mgbanwe egwuregwu-ọzọ akpaaka nke YouTube" },
+
+  "autoQuality": { "message": "Àgwà akpaaka" },
+  "enableAutoHd": { "message": "Meghee HD akpaaka" },
+  "enableAutoHdDesc": { "message": "Tọọ àgwà akpaaka mgbe a na-ebufe" },
+  "preferredQuality": { "message": "Àgwà a họọrọ" },
+  "preferredFps": { "message": "FPS a họọrọ" },
+  "allowFallback": { "message": "Kwe ka ọ laa azụ" },
+  "allowFallbackDesc": { "message": "Jiri àgwà dị ala ma ọ bụrụ na nke a họọrọ adịghị" },
+
+  "hudAmple": { "message": "Buffer dị ukwuu" },
+  "hudHealthy": { "message": "Buffer dị mma" },
+  "hudOk": { "message": "Buffer kwesịrị ekwesị" },
+  "hudLow": { "message": "Buffer dị ntakịrị" },
+  "hudDanger": { "message": "Buffer na-adịghị mma" }
+}

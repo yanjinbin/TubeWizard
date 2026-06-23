@@ -8,6 +8,8 @@
 
 `All local` · `zero data collection` · `no account needed`
 
+**14 languages:** English · 简体中文 · 繁體中文 · 日本語 · 한국어 · Español · Français · Português · Bahasa Indonesia · العربية · فارسی · Kiswahili · Yorùbá · Igbo
+
 </div>
 
 ---
