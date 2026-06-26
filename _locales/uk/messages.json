@@ -1,0 +1,29 @@
+{
+  "extName": { "message": "TubeWizard" },
+  "extDesc": { "message": "Одиночне відтворення, авто HD/FPS, вимкнення PiP, театральний режим, керування автовідтворенням і HUD буфера/швидкості для YouTube." },
+
+  "singlePlayback": { "message": "Одиночне Відтворення" },
+  "singlePlaybackDesc": { "message": "Автоматично призупиняти YouTube-вкладки у фоні" },
+  "disablePip": { "message": "Вимкнути Картинку в Картинці" },
+  "disablePipDesc": { "message": "Блокувати кнопку PiP та API" },
+  "theaterMode": { "message": "Театральний Режим" },
+  "theaterModeDesc": { "message": "За замовчуванням широкий макет плеєра" },
+  "bufferHud": { "message": "HUD Буфера і Швидкості" },
+  "bufferHudDesc": { "message": "Відображати стан буфера та швидкість завантаження на панелі керування" },
+  "autoplay": { "message": "Автовідтворення" },
+  "autoplayDesc": { "message": "Керувати перемикачем автовідтворення YouTube" },
+
+  "autoQuality": { "message": "Автоматична Якість" },
+  "enableAutoHd": { "message": "Увімкнути Авто HD" },
+  "enableAutoHdDesc": { "message": "Автоматично встановлювати якість при завантаженні" },
+  "preferredQuality": { "message": "Бажана Якість" },
+  "preferredFps": { "message": "Бажаний FPS" },
+  "allowFallback": { "message": "Дозволити Резервну Якість" },
+  "allowFallbackDesc": { "message": "Використовувати нижчу якість, якщо бажана недоступна" },
+
+  "hudAmple": { "message": "Буфер повний" },
+  "hudHealthy": { "message": "Буфер хороший" },
+  "hudOk": { "message": "Буфер нормальний" },
+  "hudLow": { "message": "Буфер низький" },
+  "hudDanger": { "message": "Буфер критичний" }
+}

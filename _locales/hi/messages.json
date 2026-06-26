@@ -1,0 +1,29 @@
+{
+  "extName": { "message": "TubeWizard" },
+  "extDesc": { "message": "एकल प्लेबैक, स्वचालित HD/FPS, PiP अक्षम, थिएटर मोड, ऑटोप्ले नियंत्रण और YouTube पर बफर/स्पीड HUD।" },
+
+  "singlePlayback": { "message": "एकल प्लेबैक" },
+  "singlePlaybackDesc": { "message": "पृष्ठभूमि YouTube टैब स्वचालित रूप से रोकें" },
+  "disablePip": { "message": "पिक्चर-इन-पिक्चर अक्षम करें" },
+  "disablePipDesc": { "message": "PiP बटन और API ब्लॉक करें" },
+  "theaterMode": { "message": "थिएटर मोड" },
+  "theaterModeDesc": { "message": "डिफ़ॉल्ट रूप से चौड़े प्लेयर लेआउट का उपयोग करें" },
+  "bufferHud": { "message": "बफर + स्पीड HUD" },
+  "bufferHudDesc": { "message": "कंट्रोल बार में बफर स्वास्थ्य और डाउनलोड स्पीड दिखाएं" },
+  "autoplay": { "message": "ऑटोप्ले" },
+  "autoplayDesc": { "message": "YouTube के ऑटोप्ले-नेक्स्ट टॉगल को नियंत्रित करें" },
+
+  "autoQuality": { "message": "स्वचालित गुणवत्ता" },
+  "enableAutoHd": { "message": "ऑटो HD सक्षम करें" },
+  "enableAutoHdDesc": { "message": "लोड पर स्वचालित रूप से गुणवत्ता सेट करें" },
+  "preferredQuality": { "message": "पसंदीदा गुणवत्ता" },
+  "preferredFps": { "message": "पसंदीदा FPS" },
+  "allowFallback": { "message": "फॉलबैक की अनुमति दें" },
+  "allowFallbackDesc": { "message": "यदि पसंदीदा उपलब्ध न हो तो कम गुणवत्ता का उपयोग करें" },
+
+  "hudAmple": { "message": "बफर पर्याप्त" },
+  "hudHealthy": { "message": "बफर स्वस्थ" },
+  "hudOk": { "message": "बफर ठीक" },
+  "hudLow": { "message": "बफर कम" },
+  "hudDanger": { "message": "बफर गंभीर" }
+}

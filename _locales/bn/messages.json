@@ -1,0 +1,29 @@
+{
+  "extName": { "message": "TubeWizard" },
+  "extDesc": { "message": "একক প্লেব্যাক, স্বয়ংক্রিয় HD/FPS, PiP নিষ্ক্রিয়, থিয়েটার মোড, অটোপ্লে নিয়ন্ত্রণ এবং YouTube-এ বাফার/স্পিড HUD।" },
+
+  "singlePlayback": { "message": "একক প্লেব্যাক" },
+  "singlePlaybackDesc": { "message": "ব্যাকগ্রাউন্ড YouTube ট্যাব স্বয়ংক্রিয়ভাবে পজ করুন" },
+  "disablePip": { "message": "পিকচার-ইন-পিকচার নিষ্ক্রিয় করুন" },
+  "disablePipDesc": { "message": "PiP বাটন এবং API ব্লক করুন" },
+  "theaterMode": { "message": "থিয়েটার মোড" },
+  "theaterModeDesc": { "message": "ডিফল্টরূপে প্রশস্ত প্লেয়ার লেআউট" },
+  "bufferHud": { "message": "বাফার + স্পিড HUD" },
+  "bufferHudDesc": { "message": "কন্ট্রোল বারে বাফার স্বাস্থ্য ও ডাউনলোড গতি দেখান" },
+  "autoplay": { "message": "অটোপ্লে" },
+  "autoplayDesc": { "message": "YouTube-এর অটোপ্লে-নেক্সট টগল নিয়ন্ত্রণ করুন" },
+
+  "autoQuality": { "message": "স্বয়ংক্রিয় গুণমান" },
+  "enableAutoHd": { "message": "অটো HD সক্রিয় করুন" },
+  "enableAutoHdDesc": { "message": "লোডের সময় স্বয়ংক্রিয়ভাবে গুণমান সেট করুন" },
+  "preferredQuality": { "message": "পছন্দের গুণমান" },
+  "preferredFps": { "message": "পছন্দের FPS" },
+  "allowFallback": { "message": "ফলব্যাক অনুমতি দিন" },
+  "allowFallbackDesc": { "message": "পছন্দের গুণমান না পাওয়া গেলে নিম্নমানের ব্যবহার করুন" },
+
+  "hudAmple": { "message": "বাফার প্রচুর" },
+  "hudHealthy": { "message": "বাফার সুস্থ" },
+  "hudOk": { "message": "বাফার ঠিক আছে" },
+  "hudLow": { "message": "বাফার কম" },
+  "hudDanger": { "message": "বাফার সংকটজনক" }
+}

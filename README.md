@@ -8,7 +8,7 @@
 
 `All local` · `zero data collection` · `no account needed`
 
-**14 languages:** English · 简体中文 · 繁體中文 · 日本語 · 한국어 · Español · Français · Português · Bahasa Indonesia · العربية · فارسی · Kiswahili · Yorùbá · Igbo
+**25 languages:** English · 简体中文 · 繁體中文 · 日本語 · 한국어 · Español · Français · Português · Bahasa Indonesia · العربية · فارسی · Kiswahili · Yorùbá · Igbo · বাংলা · עברית · हिन्दी · Italiano · Монгол · Nederlands · ਪੰਜਾਬੀ · Polski · Русский · Українська · Tiếng Việt
 
 </div>
 
@@ -42,6 +42,10 @@
   player control bar, with zero extra network usage.
 
 ## Install
+
+<a href="https://chromewebstore.google.com/detail/tubewizard/faakolhpbnmoigcbikohccldhmagmflm">
+  <img src="https://fonts.gstatic.com/s/i/productlogos/chrome_store/v7/192px.svg" alt="Available in the Chrome Web Store" width="64" />
+</a>
 
 [![Chrome Web Store](https://img.shields.io/chrome-web-store/v/faakolhpbnmoigcbikohccldhmagmflm?label=Chrome%20Web%20Store)](https://chromewebstore.google.com/detail/tubewizard/faakolhpbnmoigcbikohccldhmagmflm)
 

@@ -1,0 +1,29 @@
+{
+  "extName": { "message": "TubeWizard" },
+  "extDesc": { "message": "Одиночное воспроизведение, авто HD/FPS, отключение PiP, театральный режим, управление автовоспроизведением и HUD буфера/скорости для YouTube." },
+
+  "singlePlayback": { "message": "Одиночное Воспроизведение" },
+  "singlePlaybackDesc": { "message": "Автоматически ставить на паузу YouTube-вкладки в фоне" },
+  "disablePip": { "message": "Отключить Картинку в Картинке" },
+  "disablePipDesc": { "message": "Блокировать кнопку PiP и API" },
+  "theaterMode": { "message": "Театральный Режим" },
+  "theaterModeDesc": { "message": "По умолчанию использовать широкий макет плеера" },
+  "bufferHud": { "message": "HUD Буфера и Скорости" },
+  "bufferHudDesc": { "message": "Показывать состояние буфера и скорость загрузки на панели управления" },
+  "autoplay": { "message": "Автовоспроизведение" },
+  "autoplayDesc": { "message": "Управлять переключателем автовоспроизведения YouTube" },
+
+  "autoQuality": { "message": "Автоматическое Качество" },
+  "enableAutoHd": { "message": "Включить Авто HD" },
+  "enableAutoHdDesc": { "message": "Автоматически устанавливать качество при загрузке" },
+  "preferredQuality": { "message": "Предпочтительное Качество" },
+  "preferredFps": { "message": "Предпочтительный FPS" },
+  "allowFallback": { "message": "Разрешить Запасное Качество" },
+  "allowFallbackDesc": { "message": "Использовать более низкое качество, если предпочтительное недоступно" },
+
+  "hudAmple": { "message": "Буфер полный" },
+  "hudHealthy": { "message": "Буфер хороший" },
+  "hudOk": { "message": "Буфер нормальный" },
+  "hudLow": { "message": "Буфер низкий" },
+  "hudDanger": { "message": "Буфер критический" }
+}

@@ -1,0 +1,29 @@
+{
+  "extName": { "message": "TubeWizard" },
+  "extDesc": { "message": "ਇਕੱਲਾ ਪਲੇਬੈਕ, ਆਟੋ HD/FPS, PiP ਅਯੋਗ, ਥੀਏਟਰ ਮੋਡ, ਆਟੋਪਲੇ ਕੰਟਰੋਲ ਅਤੇ YouTube ਲਈ ਬਫਰ/ਸਪੀਡ HUD।" },
+
+  "singlePlayback": { "message": "ਇਕੱਲਾ ਪਲੇਬੈਕ" },
+  "singlePlaybackDesc": { "message": "ਬੈਕਗ੍ਰਾਊਂਡ YouTube ਟੈਬਾਂ ਨੂੰ ਆਟੋਮੈਟਿਕ ਰੋਕੋ" },
+  "disablePip": { "message": "ਪਿਕਚਰ-ਇਨ-ਪਿਕਚਰ ਅਯੋਗ ਕਰੋ" },
+  "disablePipDesc": { "message": "PiP ਬਟਨ ਅਤੇ API ਬਲਾਕ ਕਰੋ" },
+  "theaterMode": { "message": "ਥੀਏਟਰ ਮੋਡ" },
+  "theaterModeDesc": { "message": "ਡਿਫੌਲਟ ਚੌੜੇ ਪਲੇਅਰ ਲੇਆਉਟ" },
+  "bufferHud": { "message": "ਬਫਰ + ਸਪੀਡ HUD" },
+  "bufferHudDesc": { "message": "ਕੰਟਰੋਲ ਬਾਰ ਵਿੱਚ ਬਫਰ ਸਿਹਤ ਅਤੇ ਡਾਊਨਲੋਡ ਸਪੀਡ ਦਿਖਾਓ" },
+  "autoplay": { "message": "ਆਟੋਪਲੇ" },
+  "autoplayDesc": { "message": "YouTube ਦੇ ਆਟੋਪਲੇ-ਨੈਕਸਟ ਟੌਗਲ ਨੂੰ ਕੰਟਰੋਲ ਕਰੋ" },
+
+  "autoQuality": { "message": "ਆਟੋ ਗੁਣਵੱਤਾ" },
+  "enableAutoHd": { "message": "ਆਟੋ HD ਚਾਲੂ ਕਰੋ" },
+  "enableAutoHdDesc": { "message": "ਲੋਡ ਹੋਣ 'ਤੇ ਆਟੋਮੈਟਿਕ ਗੁਣਵੱਤਾ ਸੈੱਟ ਕਰੋ" },
+  "preferredQuality": { "message": "ਪਸੰਦੀਦਾ ਗੁਣਵੱਤਾ" },
+  "preferredFps": { "message": "ਪਸੰਦੀਦਾ FPS" },
+  "allowFallback": { "message": "ਫਾਲਬੈਕ ਦੀ ਇਜਾਜ਼ਤ ਦਿਓ" },
+  "allowFallbackDesc": { "message": "ਜੇ ਪਸੰਦੀਦਾ ਉਪਲਬਧ ਨਹੀਂ ਤਾਂ ਘੱਟ ਗੁਣਵੱਤਾ ਵਰਤੋ" },
+
+  "hudAmple": { "message": "ਬਫਰ ਕਾਫੀ" },
+  "hudHealthy": { "message": "ਬਫਰ ਸਿਹਤਮੰਦ" },
+  "hudOk": { "message": "ਬਫਰ ਠੀਕ" },
+  "hudLow": { "message": "ਬਫਰ ਘੱਟ" },
+  "hudDanger": { "message": "ਬਫਰ ਗੰਭੀਰ" }
+}

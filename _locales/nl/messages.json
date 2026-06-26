@@ -1,0 +1,29 @@
+{
+  "extName": { "message": "TubeWizard" },
+  "extDesc": { "message": "Enkelvoudige weergave, automatische HD/FPS, PiP uitschakelen, theaterstand, autoplay-beheer en buffer/snelheid HUD voor YouTube." },
+
+  "singlePlayback": { "message": "Enkelvoudige Weergave" },
+  "singlePlaybackDesc": { "message": "YouTube-tabbladen op de achtergrond automatisch pauzeren" },
+  "disablePip": { "message": "Beeld-in-Beeld Uitschakelen" },
+  "disablePipDesc": { "message": "PiP-knop en API blokkeren" },
+  "theaterMode": { "message": "Theaterstand" },
+  "theaterModeDesc": { "message": "Standaard brede spelerindeling" },
+  "bufferHud": { "message": "Buffer + Snelheid HUD" },
+  "bufferHudDesc": { "message": "Bufferconditie en downloadsnelheid weergeven in de bedieningsbalk" },
+  "autoplay": { "message": "Automatisch Afspelen" },
+  "autoplayDesc": { "message": "Beheert YouTubes automatisch-volgende schakelaar" },
+
+  "autoQuality": { "message": "Automatische Kwaliteit" },
+  "enableAutoHd": { "message": "Automatische HD Inschakelen" },
+  "enableAutoHdDesc": { "message": "Kwaliteit automatisch instellen bij laden" },
+  "preferredQuality": { "message": "Gewenste Kwaliteit" },
+  "preferredFps": { "message": "Gewenste FPS" },
+  "allowFallback": { "message": "Fallback Toestaan" },
+  "allowFallbackDesc": { "message": "Lagere kwaliteit gebruiken als gewenste niet beschikbaar is" },
+
+  "hudAmple": { "message": "Buffer ruim" },
+  "hudHealthy": { "message": "Buffer gezond" },
+  "hudOk": { "message": "Buffer voldoende" },
+  "hudLow": { "message": "Buffer laag" },
+  "hudDanger": { "message": "Buffer kritiek" }
+}

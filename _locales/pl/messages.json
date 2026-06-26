@@ -1,0 +1,29 @@
+{
+  "extName": { "message": "TubeWizard" },
+  "extDesc": { "message": "Pojedyncze odtwarzanie, automatyczne HD/FPS, wyłączenie PiP, tryb kinowy, sterowanie autoodtwarzaniem i HUD bufora/prędkości dla YouTube." },
+
+  "singlePlayback": { "message": "Pojedyncze Odtwarzanie" },
+  "singlePlaybackDesc": { "message": "Automatycznie wstrzymuj karty YouTube w tle" },
+  "disablePip": { "message": "Wyłącz Obraz w Obrazie" },
+  "disablePipDesc": { "message": "Blokuj przycisk PiP i API" },
+  "theaterMode": { "message": "Tryb Kinowy" },
+  "theaterModeDesc": { "message": "Domyślny szeroki układ odtwarzacza" },
+  "bufferHud": { "message": "HUD Bufora i Prędkości" },
+  "bufferHudDesc": { "message": "Wyświetlaj stan bufora i prędkość pobierania na pasku sterowania" },
+  "autoplay": { "message": "Autoodtwarzanie" },
+  "autoplayDesc": { "message": "Kontroluj przełącznik autoodtwarzania YouTube" },
+
+  "autoQuality": { "message": "Automatyczna Jakość" },
+  "enableAutoHd": { "message": "Włącz Auto HD" },
+  "enableAutoHdDesc": { "message": "Automatycznie ustaw jakość przy ładowaniu" },
+  "preferredQuality": { "message": "Preferowana Jakość" },
+  "preferredFps": { "message": "Preferowane FPS" },
+  "allowFallback": { "message": "Zezwól na Zastępczą Jakość" },
+  "allowFallbackDesc": { "message": "Użyj niższej jakości, jeśli preferowana jest niedostępna" },
+
+  "hudAmple": { "message": "Bufor obfity" },
+  "hudHealthy": { "message": "Bufor zdrowy" },
+  "hudOk": { "message": "Bufor OK" },
+  "hudLow": { "message": "Bufor niski" },
+  "hudDanger": { "message": "Bufor krytyczny" }
+}

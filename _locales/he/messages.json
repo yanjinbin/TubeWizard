@@ -1,0 +1,29 @@
+{
+  "extName": { "message": "TubeWizard" },
+  "extDesc": { "message": "השמעה יחידה, HD/FPS אוטומטי, ביטול PiP, מצב תיאטרון, שליטה בהפעלה אוטומטית ו-HUD למאגר/מהירות ב-YouTube." },
+
+  "singlePlayback": { "message": "השמעה יחידה" },
+  "singlePlaybackDesc": { "message": "השהה אוטומטית כרטיסיות YouTube ברקע" },
+  "disablePip": { "message": "בטל תמונה בתוך תמונה" },
+  "disablePipDesc": { "message": "חסום את כפתור PiP וה-API" },
+  "theaterMode": { "message": "מצב תיאטרון" },
+  "theaterModeDesc": { "message": "ברירת מחדל לפריסת נגן רחב" },
+  "bufferHud": { "message": "HUD למאגר ומהירות" },
+  "bufferHudDesc": { "message": "הצג את בריאות המאגר ומהירות ההורדה בסרגל הבקרה" },
+  "autoplay": { "message": "הפעלה אוטומטית" },
+  "autoplayDesc": { "message": "שלוט בלחצן ההפעלה האוטומטית של YouTube" },
+
+  "autoQuality": { "message": "איכות אוטומטית" },
+  "enableAutoHd": { "message": "הפעל HD אוטומטי" },
+  "enableAutoHdDesc": { "message": "הגדר איכות אוטומטית בטעינה" },
+  "preferredQuality": { "message": "איכות מועדפת" },
+  "preferredFps": { "message": "FPS מועדף" },
+  "allowFallback": { "message": "אפשר נפילה לרזולוציה נמוכה" },
+  "allowFallbackDesc": { "message": "השתמש באיכות נמוכה יותר אם המועדפת אינה זמינה" },
+
+  "hudAmple": { "message": "מאגר מספיק" },
+  "hudHealthy": { "message": "מאגר תקין" },
+  "hudOk": { "message": "מאגר סביר" },
+  "hudLow": { "message": "מאגר נמוך" },
+  "hudDanger": { "message": "מאגר קריטי" }
+}

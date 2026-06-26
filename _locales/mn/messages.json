@@ -1,0 +1,29 @@
+{
+  "extName": { "message": "TubeWizard" },
+  "extDesc": { "message": "Нэг дахин тоглуулах, автомат HD/FPS, PiP-г идэвхгүй болгох, театрын горим, автомат тоглуулах удирдлага болон YouTube-н буфер/хурдны HUD." },
+
+  "singlePlayback": { "message": "Нэг дахин тоглуулах" },
+  "singlePlaybackDesc": { "message": "Арын YouTube табуудыг автоматаар зогсоох" },
+  "disablePip": { "message": "Зурган дотор зураг идэвхгүй болгох" },
+  "disablePipDesc": { "message": "PiP товч болон API-г блоклох" },
+  "theaterMode": { "message": "Театрын горим" },
+  "theaterModeDesc": { "message": "Өргөн тоглуулагчийн байршлыг анхдагч болгох" },
+  "bufferHud": { "message": "Буфер + Хурдны HUD" },
+  "bufferHudDesc": { "message": "Удирдлагын мөрөнд буферийн төлөв болон татаж авах хурдыг харуулах" },
+  "autoplay": { "message": "Автомат тоглуулах" },
+  "autoplayDesc": { "message": "YouTube-ийн автомат дараагийн тоглуулах тохиргоог удирдах" },
+
+  "autoQuality": { "message": "Автомат чанар" },
+  "enableAutoHd": { "message": "Автомат HD идэвхжүүлэх" },
+  "enableAutoHdDesc": { "message": "Ачаалах үед чанарыг автоматаар тохируулах" },
+  "preferredQuality": { "message": "Тохиромжтой чанар" },
+  "preferredFps": { "message": "Тохиромжтой FPS" },
+  "allowFallback": { "message": "Нөөц чанар зөвшөөрөх" },
+  "allowFallbackDesc": { "message": "Тохиромжтой чанар байхгүй бол бага чанар ашиглах" },
+
+  "hudAmple": { "message": "Буфер хангалттай" },
+  "hudHealthy": { "message": "Буфер эрүүл" },
+  "hudOk": { "message": "Буфер хэвийн" },
+  "hudLow": { "message": "Буфер бага" },
+  "hudDanger": { "message": "Буфер аюултай" }
+}

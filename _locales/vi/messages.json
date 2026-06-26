@@ -1,0 +1,29 @@
+{
+  "extName": { "message": "TubeWizard" },
+  "extDesc": { "message": "Phát một video, HD/FPS tự động, tắt PiP, chế độ rạp chiếu phim, kiểm soát tự động phát và HUD bộ đệm/tốc độ cho YouTube." },
+
+  "singlePlayback": { "message": "Phát Một Video" },
+  "singlePlaybackDesc": { "message": "Tự động tạm dừng các tab YouTube ở nền" },
+  "disablePip": { "message": "Tắt Hình trong Hình" },
+  "disablePipDesc": { "message": "Chặn nút PiP và API" },
+  "theaterMode": { "message": "Chế Độ Rạp Chiếu Phim" },
+  "theaterModeDesc": { "message": "Mặc định bố cục trình phát rộng" },
+  "bufferHud": { "message": "HUD Bộ Đệm + Tốc Độ" },
+  "bufferHudDesc": { "message": "Hiển thị tình trạng bộ đệm và tốc độ tải xuống trên thanh điều khiển" },
+  "autoplay": { "message": "Tự Động Phát" },
+  "autoplayDesc": { "message": "Kiểm soát nút bật tắt tự động phát tiếp theo của YouTube" },
+
+  "autoQuality": { "message": "Chất Lượng Tự Động" },
+  "enableAutoHd": { "message": "Bật HD Tự Động" },
+  "enableAutoHdDesc": { "message": "Tự động đặt chất lượng khi tải" },
+  "preferredQuality": { "message": "Chất Lượng Ưu Tiên" },
+  "preferredFps": { "message": "FPS Ưu Tiên" },
+  "allowFallback": { "message": "Cho Phép Dự Phòng" },
+  "allowFallbackDesc": { "message": "Dùng chất lượng thấp hơn nếu chất lượng ưu tiên không có sẵn" },
+
+  "hudAmple": { "message": "Bộ đệm dồi dào" },
+  "hudHealthy": { "message": "Bộ đệm tốt" },
+  "hudOk": { "message": "Bộ đệm ổn" },
+  "hudLow": { "message": "Bộ đệm thấp" },
+  "hudDanger": { "message": "Bộ đệm nguy cấp" }
+}
