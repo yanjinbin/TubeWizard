@@ -200,6 +200,35 @@ select:focus {
   pointer-events: none;
 }
 
+.sub-row {
+  padding-left: 12px;
+  border-left: 2px solid #2e2e2e;
+  margin-left: 4px;
+  transition: opacity 0.2s;
+}
+
+.sub-row.disabled {
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.sub-field {
+  padding-left: 12px;
+  border-left: 2px solid #2e2e2e;
+  margin-left: 4px;
+  margin-top: 4px;
+  transition: opacity 0.2s;
+}
+
+.sub-field.disabled {
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+#bufferAheadOptions {
+  transition: opacity 0.2s;
+}
+
 footer {
   text-align: center;
   font-size: 11px;

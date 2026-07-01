@@ -12,6 +12,8 @@
   "bufferHudDesc": { "message": "Gosi ahụike buffer na ọsọ nbudata na ọkpụkpọ njikwa" },
   "autoplay": { "message": "Egwuregwu akpaaka" },
   "autoplayDesc": { "message": "Jikwaa mgbanwe egwuregwu-ọzọ akpaaka nke YouTube" },
+  "hideContinueWatching": { "message": "Zochie Gaa n'ihu Ịlele" },
+  "hideContinueWatchingDesc": { "message": "Wepu ihe ngosi nke gaa n'ihu ịlele" },
 
   "autoQuality": { "message": "Àgwà akpaaka" },
   "enableAutoHd": { "message": "Meghee HD akpaaka" },

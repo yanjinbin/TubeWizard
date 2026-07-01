@@ -12,6 +12,8 @@
   "bufferHudDesc": { "message": "Tampilkan kesehatan buffer dan kecepatan unduhan di bilah kontrol" },
   "autoplay": { "message": "Putar otomatis" },
   "autoplayDesc": { "message": "Kontrol tombol putar otomatis YouTube" },
+  "hideContinueWatching": { "message": "Sembunyikan Lanjutkan Menonton" },
+  "hideContinueWatchingDesc": { "message": "Hapus popup lanjutkan menonton" },
 
   "autoQuality": { "message": "Kualitas otomatis" },
   "enableAutoHd": { "message": "Aktifkan HD otomatis" },

@@ -38,6 +38,8 @@
 - **Disable Picture-in-Picture** — Block the PiP button and the PiP API.
 - **Theater Mode** — Always start videos in the wide theater layout.
 - **Autoplay control** — Mirror YouTube's "autoplay next" toggle to your preference.
+- **Hide Continue Watching** — Remove the "Continue Watching" mini-player popup
+  that appears in the bottom-right corner of the home page.
 - **Buffer + Speed HUD** — Optional live buffer health and download speed in the
   player control bar, with zero extra network usage.
 

@@ -12,6 +12,8 @@
   "bufferHudDesc": { "message": "Onyesha hali ya bafa na kasi ya upakuaji kwenye upau wa udhibiti" },
   "autoplay": { "message": "Kucheza kiotomatiki" },
   "autoplayDesc": { "message": "Dhibiti kubadili kucheza kiotomatiki kwa YouTube" },
+  "hideContinueWatching": { "message": "Ficha Endelea Kutazama" },
+  "hideContinueWatchingDesc": { "message": "Ondoa kidirisha cha endelea kutazama" },
 
   "autoQuality": { "message": "Ubora otomatiki" },
   "enableAutoHd": { "message": "Wezesha HD otomatiki" },

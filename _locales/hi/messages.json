@@ -12,6 +12,8 @@
   "bufferHudDesc": { "message": "कंट्रोल बार में बफर स्वास्थ्य और डाउनलोड स्पीड दिखाएं" },
   "autoplay": { "message": "ऑटोप्ले" },
   "autoplayDesc": { "message": "YouTube के ऑटोप्ले-नेक्स्ट टॉगल को नियंत्रित करें" },
+  "hideContinueWatching": { "message": "जारी देखें छुपाएं" },
+  "hideContinueWatchingDesc": { "message": "जारी देखें पॉपअप हटाएं" },
 
   "autoQuality": { "message": "स्वचालित गुणवत्ता" },
   "enableAutoHd": { "message": "ऑटो HD सक्षम करें" },

@@ -12,6 +12,8 @@
   "bufferHudDesc": { "message": "Відображати стан буфера та швидкість завантаження на панелі керування" },
   "autoplay": { "message": "Автовідтворення" },
   "autoplayDesc": { "message": "Керувати перемикачем автовідтворення YouTube" },
+  "hideContinueWatching": { "message": "Приховати «Продовжити перегляд»" },
+  "hideContinueWatchingDesc": { "message": "Прибрати спливаюче вікно «Продовжити перегляд»" },
 
   "autoQuality": { "message": "Автоматична Якість" },
   "enableAutoHd": { "message": "Увімкнути Авто HD" },

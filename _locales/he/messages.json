@@ -12,6 +12,8 @@
   "bufferHudDesc": { "message": "הצג את בריאות המאגר ומהירות ההורדה בסרגל הבקרה" },
   "autoplay": { "message": "הפעלה אוטומטית" },
   "autoplayDesc": { "message": "שלוט בלחצן ההפעלה האוטומטית של YouTube" },
+  "hideContinueWatching": { "message": "הסתר המשך צפייה" },
+  "hideContinueWatchingDesc": { "message": "הסר את חלון המשך הצפייה" },
 
   "autoQuality": { "message": "איכות אוטומטית" },
   "enableAutoHd": { "message": "הפעל HD אוטומטי" },

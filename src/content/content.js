@@ -14,6 +14,7 @@ let settings = {
   theaterMode: false,
   bufferHud: false,
   autoplay: true,
+  hideContinueWatching: false,
 };
 
 // True only while this content script's extension context is still alive.
@@ -94,35 +95,25 @@ let lastGestureTime = 0;
   document.addEventListener(type, () => { lastGestureTime = Date.now(); }, true)
 );
 
-// Set when WE programmatically resume a video, so our own play() call doesn't
-// recurse back into this handler.
-let resuming = false;
-
 // DOM events cross the isolated/main world boundary, so this works here.
 document.addEventListener("play", (e) => {
   if (e.target.tagName !== "VIDEO") return;
   if (!settings.singlePlayback) return;
-  if (resuming) { resuming = false; return; }
   if (!extAlive()) return;
 
   const video = e.target;
   const userInitiated = Date.now() - lastGestureTime < 1000;
 
-  // Autoplay (tab switch, new tab, navigation): stop it instantly to avoid any
-  // audible/visible flicker, then confirm with the background whether this tab
-  // actually owns playback. Only resume if granted.
-  if (!userInitiated) video.pause();
-
+  // Ask the background whether this tab owns playback. We do NOT pre-pause
+  // here because the async roundtrip (service-worker wake + two storage reads)
+  // takes 200-500 ms and causes the video to visibly stall at the start.
+  // If the background denies the request we pause at that point instead.
   try {
     chrome.runtime.sendMessage({ type: "REQUEST_PLAY", userInitiated }, (resp) => {
       if (chrome.runtime.lastError) return; // context gone / no receiver
       const allowed = !resp || resp.allow !== false;
       if (!allowed) {
         video.pause();
-      } else if (!userInitiated && video.paused) {
-        // We pre-paused an autoplay but this tab does own playback → resume.
-        resuming = true;
-        video.play().catch(() => { resuming = false; });
       }
     });
   } catch {

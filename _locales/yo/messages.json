@@ -12,6 +12,8 @@
   "bufferHudDesc": { "message": "Ṣafihan ilera ifipamọ ati iyara igbasilẹ lori ọpa iṣakoso" },
   "autoplay": { "message": "Ṣiṣere aifọwọyi" },
   "autoplayDesc": { "message": "Ṣakoso iyipada ṣiṣere-t'okan ti YouTube" },
+  "hideContinueWatching": { "message": "Farapamọ Tẹsiwaju Wiwo" },
+  "hideContinueWatchingDesc": { "message": "Yọ afihan tẹsiwaju wiwo kuro" },
 
   "autoQuality": { "message": "Didara aifọwọyi" },
   "enableAutoHd": { "message": "Mu HD aifọwọyi ṣiṣẹ" },

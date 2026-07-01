@@ -12,6 +12,8 @@
   "bufferHudDesc": { "message": "Mostra lo stato del buffer e la velocità di download nella barra di controllo" },
   "autoplay": { "message": "Riproduzione Automatica" },
   "autoplayDesc": { "message": "Controlla il toggle di riproduzione automatica di YouTube" },
+  "hideContinueWatching": { "message": "Nascondi Continua a Guardare" },
+  "hideContinueWatchingDesc": { "message": "Rimuovi il popup di continua a guardare" },
 
   "autoQuality": { "message": "Qualità Automatica" },
   "enableAutoHd": { "message": "Abilita HD Automatico" },

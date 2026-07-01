@@ -12,6 +12,8 @@
   "bufferHudDesc": { "message": "컨트롤 바에 버퍼 상태와 다운로드 속도 표시" },
   "autoplay": { "message": "자동 재생" },
   "autoplayDesc": { "message": "YouTube 자동 재생 토글 동기화" },
+  "hideContinueWatching": { "message": "이어보기 팝업 숨기기" },
+  "hideContinueWatchingDesc": { "message": "이어보기 팝업을 제거합니다" },
 
   "autoQuality": { "message": "자동 화질" },
   "enableAutoHd": { "message": "자동 HD 사용" },

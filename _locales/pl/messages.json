@@ -12,6 +12,8 @@
   "bufferHudDesc": { "message": "Wyświetlaj stan bufora i prędkość pobierania na pasku sterowania" },
   "autoplay": { "message": "Autoodtwarzanie" },
   "autoplayDesc": { "message": "Kontroluj przełącznik autoodtwarzania YouTube" },
+  "hideContinueWatching": { "message": "Ukryj Kontynuuj Oglądanie" },
+  "hideContinueWatchingDesc": { "message": "Usuń wyskakujące okno kontynuowania oglądania" },
 
   "autoQuality": { "message": "Automatyczna Jakość" },
   "enableAutoHd": { "message": "Włącz Auto HD" },

@@ -12,6 +12,8 @@
   "bufferHudDesc": { "message": "Bufferconditie en downloadsnelheid weergeven in de bedieningsbalk" },
   "autoplay": { "message": "Automatisch Afspelen" },
   "autoplayDesc": { "message": "Beheert YouTubes automatisch-volgende schakelaar" },
+  "hideContinueWatching": { "message": "Verberg Doorgaan met Kijken" },
+  "hideContinueWatchingDesc": { "message": "Verwijder het pop-upvenster voor doorgaan met kijken" },
 
   "autoQuality": { "message": "Automatische Kwaliteit" },
   "enableAutoHd": { "message": "Automatische HD Inschakelen" },

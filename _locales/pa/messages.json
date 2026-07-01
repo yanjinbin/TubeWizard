@@ -12,6 +12,8 @@
   "bufferHudDesc": { "message": "ਕੰਟਰੋਲ ਬਾਰ ਵਿੱਚ ਬਫਰ ਸਿਹਤ ਅਤੇ ਡਾਊਨਲੋਡ ਸਪੀਡ ਦਿਖਾਓ" },
   "autoplay": { "message": "ਆਟੋਪਲੇ" },
   "autoplayDesc": { "message": "YouTube ਦੇ ਆਟੋਪਲੇ-ਨੈਕਸਟ ਟੌਗਲ ਨੂੰ ਕੰਟਰੋਲ ਕਰੋ" },
+  "hideContinueWatching": { "message": "ਦੇਖਣਾ ਜਾਰੀ ਰੱਖੋ ਲੁਕਾਓ" },
+  "hideContinueWatchingDesc": { "message": "ਜਾਰੀ ਰੱਖੋ ਦੇਖਣਾ ਪੌਪਅੱਪ ਹਟਾਓ" },
 
   "autoQuality": { "message": "ਆਟੋ ਗੁਣਵੱਤਾ" },
   "enableAutoHd": { "message": "ਆਟੋ HD ਚਾਲੂ ਕਰੋ" },

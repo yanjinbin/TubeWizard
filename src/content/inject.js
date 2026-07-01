@@ -19,6 +19,7 @@
     theaterMode: false,
     bufferHud: false,
     autoplay: true,
+    hideContinueWatching: false,
   };
 
   let pipInstalled = false;
@@ -31,6 +32,7 @@
     scheduleTheater();      // re-apply theater preference
     scheduleHud();          // toggle buffer/speed HUD
     scheduleAutoplayBlock();// sync YouTube's "autoplay next" toggle
+    applyContinueWatchingStyle();
   });
 
   // ─── Feature 2: disable Picture-in-Picture ─────────────────────────────────
@@ -321,6 +323,22 @@
       // Don't wait forever — the toggle only exists on watch pages.
       setTimeout(() => { observer.disconnect(); resolve(null); }, 10000);
     });
+  }
+
+
+  // ─── Hide "Continue Watching" miniplayer popup ─────────────────────────────
+  function applyContinueWatchingStyle() {
+    let style = document.getElementById("yte-cwp-style");
+    if (settings.hideContinueWatching) {
+      if (!style) {
+        style = document.createElement("style");
+        style.id = "yte-cwp-style";
+        document.documentElement.appendChild(style);
+      }
+      style.textContent = `ytd-miniplayer { display: none !important; }`;
+    } else if (style) {
+      style.remove();
+    }
   }
 
   // ─── SPA navigation ────────────────────────────────────────────────────────

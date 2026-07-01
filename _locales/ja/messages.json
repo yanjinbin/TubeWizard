@@ -12,6 +12,8 @@
   "bufferHudDesc": { "message": "コントロールバーにバッファと通信速度を表示" },
   "autoplay": { "message": "自動再生" },
   "autoplayDesc": { "message": "YouTube の「次を自動再生」を同期" },
+  "hideContinueWatching": { "message": "「続きを見る」を非表示" },
+  "hideContinueWatchingDesc": { "message": "「続きを見る」ポップアップを非表示にする" },
 
   "autoQuality": { "message": "自動画質" },
   "enableAutoHd": { "message": "自動 HD を有効化" },

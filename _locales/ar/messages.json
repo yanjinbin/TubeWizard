@@ -12,6 +12,8 @@
   "bufferHudDesc": { "message": "عرض صحة المخزن المؤقت وسرعة التنزيل في شريط التحكم" },
   "autoplay": { "message": "التشغيل التلقائي" },
   "autoplayDesc": { "message": "التحكم في خيار تشغيل الفيديو التالي تلقائياً في يوتيوب" },
+  "hideContinueWatching": { "message": "إخفاء متابعة المشاهدة" },
+  "hideContinueWatchingDesc": { "message": "إزالة نافذة متابعة المشاهدة المنبثقة" },
 
   "autoQuality": { "message": "جودة تلقائية" },
   "enableAutoHd": { "message": "تفعيل HD التلقائي" },

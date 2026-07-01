@@ -12,6 +12,8 @@
   "bufferHudDesc": { "message": "نمایش وضعیت بافر و سرعت دانلود در نوار کنترل" },
   "autoplay": { "message": "پخش خودکار" },
   "autoplayDesc": { "message": "کنترل گزینه پخش خودکار یوتیوب" },
+  "hideContinueWatching": { "message": "پنهان کردن ادامه تماشا" },
+  "hideContinueWatchingDesc": { "message": "پنجره ادامه تماشا را حذف کنید" },
 
   "autoQuality": { "message": "کیفیت خودکار" },
   "enableAutoHd": { "message": "فعال‌سازی HD خودکار" },

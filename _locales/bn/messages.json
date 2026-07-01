@@ -12,6 +12,8 @@
   "bufferHudDesc": { "message": "কন্ট্রোল বারে বাফার স্বাস্থ্য ও ডাউনলোড গতি দেখান" },
   "autoplay": { "message": "অটোপ্লে" },
   "autoplayDesc": { "message": "YouTube-এর অটোপ্লে-নেক্সট টগল নিয়ন্ত্রণ করুন" },
+  "hideContinueWatching": { "message": "চলতে দেখুন লুকান" },
+  "hideContinueWatchingDesc": { "message": "চলতে দেখুন পপআপ সরান" },
 
   "autoQuality": { "message": "স্বয়ংক্রিয় গুণমান" },
   "enableAutoHd": { "message": "অটো HD সক্রিয় করুন" },

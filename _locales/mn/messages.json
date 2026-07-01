@@ -12,6 +12,8 @@
   "bufferHudDesc": { "message": "Удирдлагын мөрөнд буферийн төлөв болон татаж авах хурдыг харуулах" },
   "autoplay": { "message": "Автомат тоглуулах" },
   "autoplayDesc": { "message": "YouTube-ийн автомат дараагийн тоглуулах тохиргоог удирдах" },
+  "hideContinueWatching": { "message": "Үзэлтийг үргэлжлүүлэх нуух" },
+  "hideContinueWatchingDesc": { "message": "Үргэлжлүүлэн үзэх цонхыг арилгах" },
 
   "autoQuality": { "message": "Автомат чанар" },
   "enableAutoHd": { "message": "Автомат HD идэвхжүүлэх" },

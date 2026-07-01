@@ -12,6 +12,8 @@
   "bufferHudDesc": { "message": "在控制栏显示缓冲健康度与下载速度" },
   "autoplay": { "message": "自动播放" },
   "autoplayDesc": { "message": "同步 YouTube 的「自动播放下一个」开关" },
+  "hideContinueWatching": { "message": "隐藏继续观看提示" },
+  "hideContinueWatchingDesc": { "message": "移除右下角的「继续观看」弹窗" },
 
   "autoQuality": { "message": "自动画质" },
   "enableAutoHd": { "message": "启用自动高清" },

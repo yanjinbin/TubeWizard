@@ -8,6 +8,7 @@ const DEFAULT_SETTINGS = {
   theaterMode: false,
   bufferHud: false,
   autoplay: true,
+  hideContinueWatching: false,
 };
 
 async function getSettings() {

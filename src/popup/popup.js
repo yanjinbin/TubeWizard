@@ -1,4 +1,4 @@
-const FIELDS = ["singlePlayback", "disablePip", "theaterMode", "bufferHud", "autoplay", "autoQuality", "preferredQuality", "preferredFps", "autoQualityFallback"];
+const FIELDS = ["singlePlayback", "disablePip", "theaterMode", "bufferHud", "autoplay", "hideContinueWatching", "autoQuality", "preferredQuality", "preferredFps", "autoQualityFallback"];
 
 const DEFAULT_SETTINGS = {
   singlePlayback: true,
@@ -10,6 +10,7 @@ const DEFAULT_SETTINGS = {
   theaterMode: false,
   bufferHud: false,
   autoplay: true,
+  hideContinueWatching: false,
 };
 
 function el(id) {
@@ -45,6 +46,7 @@ function saveSettings() {
 function updateQualityOptionsVisibility(enabled) {
   el("qualityOptions").classList.toggle("disabled", !enabled);
 }
+
 
 async function fetchMessages(lang) {
   try {
@@ -85,9 +87,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (!input) continue;
     input.addEventListener("change", () => {
       saveSettings();
-      if (key === "autoQuality") {
-        updateQualityOptionsVisibility(input.checked);
-      }
+      if (key === "autoQuality") updateQualityOptionsVisibility(input.checked);
     });
   }
 

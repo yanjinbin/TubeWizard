@@ -12,6 +12,8 @@
   "bufferHudDesc": { "message": "Afficher l'état du tampon et la vitesse de téléchargement dans la barre de contrôle" },
   "autoplay": { "message": "Lecture automatique" },
   "autoplayDesc": { "message": "Contrôler le bouton de lecture automatique de YouTube" },
+  "hideContinueWatching": { "message": "Masquer Continuer à Regarder" },
+  "hideContinueWatchingDesc": { "message": "Supprimer la fenêtre contextuelle de reprise" },
 
   "autoQuality": { "message": "Qualité automatique" },
   "enableAutoHd": { "message": "Activer le HD automatique" },
