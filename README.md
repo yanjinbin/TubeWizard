@@ -4,7 +4,7 @@
 
 # TubeWizard
 
-**Power-ups for YouTube — single playback, auto HD/FPS, and more.**
+**Power-ups for YouTube — single playback, auto HD/FPS, hide continue-watching, and more.**
 
 `All local` · `zero data collection` · `no account needed`
 
@@ -29,17 +29,19 @@
 
 ## Features
 
-- **Single Playback** — Only one YouTube video plays across all your tabs. A
-  video takes over only when you actively click play; opening videos in
-  background tabs won't interrupt what you're watching, and switching to a
-  non-YouTube tab keeps your current video going.
-- **Auto HD + FPS** — Automatically set your preferred resolution (up to 4K/2160p)
+- **Single Playback** — Only one YouTube video plays across all your tabs. Open
+  videos in background tabs without interrupting what you're watching. A video
+  takes over only when you actively click play; switching to a non-YouTube tab
+  keeps your current video going.
+- **Auto HD + FPS** — Automatically set your preferred resolution (up to 8K/4320p)
   and frame rate on every video, with optional fallback to the next best quality.
-- **Disable Picture-in-Picture** — Block the PiP button and the PiP API.
+- **Disable Picture-in-Picture** — Block the PiP button and the PiP API so
+  videos never pop out unexpectedly.
 - **Theater Mode** — Always start videos in the wide theater layout.
-- **Autoplay control** — Mirror YouTube's "autoplay next" toggle to your preference.
-- **Hide Continue Watching** — Remove the "Continue Watching" mini-player popup
-  that appears in the bottom-right corner of the home page.
+- **Autoplay control** — Mirror YouTube's "autoplay next" toggle to your preference,
+  applied on every page.
+- **Hide Continue Watching** — Remove the continue-watching mini-player popup
+  that appears in the bottom-right corner when navigating away from a video.
 - **Buffer + Speed HUD** — Optional live buffer health and download speed in the
   player control bar, with zero extra network usage.
 
