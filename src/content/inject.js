@@ -104,8 +104,19 @@
     const target = pickBestQuality(available);
     if (!target) return;
 
-    player.setPlaybackQualityRange?.(target, target);
+    // Pin min = max to hold the preferred quality — unless the stall watchdog
+    // relaxed the pin for this video: then only cap the max so ABR can step
+    // down to keep playback alive on a weak connection.
+    const min = qualityRelaxed ? lowestQuality(available) : target;
+    player.setPlaybackQualityRange?.(min, target);
     player.setPlaybackQuality?.(target);
+  }
+
+  function lowestQuality(available) {
+    for (let i = QUALITY_ORDER.length - 1; i >= 0; i--) {
+      if (available.includes(QUALITY_ORDER[i])) return QUALITY_ORDER[i];
+    }
+    return available[available.length - 1];
   }
 
   function getPlayer() {
@@ -341,8 +352,88 @@
     }
   }
 
+  // ─── Pause bridge ──────────────────────────────────────────────────────────
+  // The isolated content script asks us to pause. Pausing the raw <video>
+  // desyncs YouTube's state machine (player stuck UNSTARTED, loader never
+  // restarts), so prefer the player API and fall back only if it isn't ready.
+  window.addEventListener("yte:pause-video", () => {
+    const player = getPlayer();
+    if (player?.pauseVideo) {
+      player.pauseVideo();
+    } else {
+      document.querySelector("video")?.pause();
+    }
+  });
+
+  // Resume after a stale PAUSE was honored by mistake (generation race).
+  window.addEventListener("yte:play-video", () => {
+    const player = getPlayer();
+    if (player?.playVideo) {
+      player.playVideo();
+    } else {
+      document.querySelector("video")?.play().catch(() => {});
+    }
+  });
+
+  // ─── Stall watchdog ────────────────────────────────────────────────────────
+  // Resuming a long-paused tab must re-establish media connections; behind a
+  // proxy that drops idle connections the fetch can hang forever (spinner,
+  // empty buffer). When playback is stuck ≥5s with no data arriving: relax the
+  // quality pin so ABR may step down, and re-seek to the current position to
+  // force the player to abort dead requests and re-fetch.
+  const STALL_MS = 5000;
+  let qualityRelaxed = false;
+  let stallSince = 0;
+  let lastBufferedEnd = -1;
+  let rescuedAt = 0;
+
+  setInterval(() => {
+    const video =
+      document.querySelector("video.html5-main-video") ||
+      document.querySelector("video");
+    const player = getPlayer();
+    if (!video || !player || video.paused || video.readyState >= 3) {
+      stallSince = 0;
+      return;
+    }
+
+    // Playing-intent but not enough data. Stall only counts while the buffer
+    // makes no progress — normal buffering (data flowing) is left alone.
+    let bufferedEnd = -1;
+    try {
+      for (let i = 0; i < video.buffered.length; i++) {
+        if (video.buffered.start(i) <= video.currentTime + 0.1) {
+          bufferedEnd = Math.max(bufferedEnd, video.buffered.end(i));
+        }
+      }
+    } catch { /* mid-seek */ }
+
+    if (bufferedEnd > lastBufferedEnd) {
+      lastBufferedEnd = bufferedEnd;
+      stallSince = 0;
+      return;
+    }
+
+    const now = Date.now();
+    if (!stallSince) { stallSince = now; return; }
+    if (now - stallSince < STALL_MS) return;
+    if (now - rescuedAt < STALL_MS * 2) return; // one rescue per window
+
+    rescuedAt = now;
+    stallSince = 0;
+    if (!qualityRelaxed) {
+      qualityRelaxed = true;
+      applyQuality(player);
+    }
+    // Re-seek to the same spot: aborts hung media requests and restarts them.
+    player.seekTo?.(video.currentTime, true);
+  }, 1000);
+
   // ─── SPA navigation ────────────────────────────────────────────────────────
   document.addEventListener("yt-navigate-finish", () => {
+    qualityRelaxed = false; // fresh video → try the preferred pin again
+    stallSince = 0;
+    lastBufferedEnd = -1;
     scheduleQuality();
     scheduleTheater();
     scheduleHud();

@@ -82,10 +82,30 @@ chrome.runtime.onMessage.addListener((msg) => {
       broadcastSettings();
       break;
     case "PAUSE":
-      document.querySelector("video")?.pause();
+      // Generation guard: a PAUSE carrying an older generation than the grant
+      // this tab already holds is stale (it was addressed to a takeover that
+      // this tab has since reversed) — ignore it instead of killing the
+      // playback the user just started.
+      if (typeof msg.gen === "number") {
+        if (msg.gen <= lastAllowGen) break;
+        extPauseGen = msg.gen;
+      }
+      pauseViaPlayerApi();
       break;
   }
 });
+
+// Pausing the raw <video> element desyncs YouTube's player state machine from
+// the media element (player stays UNSTARTED while the element "plays" with no
+// data, and the loader never restarts — infinite spinner). Route pauses through
+// the MAIN world script so it can use the player API (pauseVideo) instead; it
+// falls back to video.pause() only when the API isn't ready yet.
+function pauseViaPlayerApi() {
+  window.dispatchEvent(new CustomEvent("yte:pause-video"));
+}
+function playViaPlayerApi() {
+  window.dispatchEvent(new CustomEvent("yte:play-video"));
+}
 
 // ─── Feature 1: single playback ───────────────────────────────────────────────
 // Track real user gestures so we can tell a user-initiated play (click / key)
@@ -95,6 +115,21 @@ let lastGestureTime = 0;
   document.addEventListener(type, () => { lastGestureTime = Date.now(); }, true)
 );
 
+// Play-token generation bookkeeping (see PAUSE handler above).
+let lastAllowGen = 0;      // generation of the newest grant this tab received
+let extPauseGen = null;    // generation of the PAUSE we last honored
+
+// Media-key / Global Media Controls plays carry no DOM gesture. Recognize them
+// by exclusion: YouTube only starts playback on its own right after a page
+// load / SPA navigation — a play in a tab that has already played, long after
+// the last navigation, must come from the user.
+let tabHasPlayed = false;
+let lastNavTime = Date.now();
+document.addEventListener("yt-navigate-finish", () => { lastNavTime = Date.now(); });
+document.addEventListener("playing", (e) => {
+  if (e.target.tagName === "VIDEO") tabHasPlayed = true;
+}, true);
+
 // DOM events cross the isolated/main world boundary, so this works here.
 document.addEventListener("play", (e) => {
   if (e.target.tagName !== "VIDEO") return;
@@ -102,7 +137,9 @@ document.addEventListener("play", (e) => {
   if (!extAlive()) return;
 
   const video = e.target;
-  const userInitiated = Date.now() - lastGestureTime < 1000;
+  const userInitiated =
+    Date.now() - lastGestureTime < 1000 ||
+    (tabHasPlayed && Date.now() - lastNavTime > 5000);
 
   // Ask the background whether this tab owns playback. We do NOT pre-pause
   // here because the async roundtrip (service-worker wake + two storage reads)
@@ -113,7 +150,17 @@ document.addEventListener("play", (e) => {
       if (chrome.runtime.lastError) return; // context gone / no receiver
       const allowed = !resp || resp.allow !== false;
       if (!allowed) {
-        video.pause();
+        pauseViaPlayerApi();
+        return;
+      }
+      if (typeof resp?.gen === "number" && resp.gen > lastAllowGen) {
+        lastAllowGen = resp.gen;
+        // A stale PAUSE may have landed between our play and this grant
+        // (message order isn't guaranteed) — undo it.
+        if (extPauseGen !== null && extPauseGen < resp.gen && video.paused) {
+          extPauseGen = null;
+          playViaPlayerApi();
+        }
       }
     });
   } catch {

@@ -1,5 +1,6 @@
 # Build artifacts
 *.zip
+dist/
 
 # Generated/preview screenshots
 store-screenshot-*.png

@@ -16,20 +16,35 @@ async function getSettings() {
 }
 
 // ─── Single playback: one "play token" across all YouTube tabs ────────────────
-// playingTabId holds the tab currently allowed to play. Persisted in
-// chrome.storage.session so it survives MV3 service-worker sleep/wake cycles
-// (in-memory variables reset every time the worker goes idle).
-async function getPlayingTabId() {
-  const { playingTabId = null } = await chrome.storage.session.get("playingTabId");
-  return playingTabId;
+// playingTabId holds the tab currently allowed to play; playGen is a monotonic
+// generation that increments on every ownership change, so content scripts can
+// discard PAUSE messages that raced with (and lost to) a newer grant. Persisted
+// in chrome.storage.session so both survive MV3 service-worker sleep/wake
+// cycles (in-memory variables reset every time the worker goes idle).
+async function getPlayState() {
+  const { playingTabId = null, playGen = 0 } =
+    await chrome.storage.session.get(["playingTabId", "playGen"]);
+  return { playingTabId, playGen };
 }
-async function setPlayingTabId(id) {
-  await chrome.storage.session.set({ playingTabId: id });
+async function setPlayState(playingTabId, playGen) {
+  await chrome.storage.session.set({ playingTabId, playGen });
 }
+
+// Serialize REQUEST_PLAY handling: two interleaved handlers could otherwise
+// read the same generation and both write gen+1, breaking monotonicity.
+let requestPlayQueue = Promise.resolve();
 
 chrome.runtime.onMessage.addListener((msg, sender, sendResponse) => {
   if (msg.type === "REQUEST_PLAY") {
-    handleRequestPlay(msg, sender).then(sendResponse);
+    // The queue must never end up rejected, or every later request would skip
+    // its handler — so each link catches all of its own errors.
+    requestPlayQueue = requestPlayQueue.then(async () => {
+      try {
+        sendResponse(await handleRequestPlay(msg, sender));
+      } catch {
+        try { sendResponse({ allow: true }); } catch { /* channel closed */ }
+      }
+    });
     return true; // keep the message channel open for the async response
   }
 });
@@ -41,7 +56,7 @@ async function handleRequestPlay(msg, sender) {
   const tabId = sender.tab?.id;
   if (!tabId) return { allow: true };
 
-  let playingTabId = await getPlayingTabId();
+  let { playingTabId, playGen } = await getPlayState();
 
   // Drop a stale token if its tab no longer exists.
   if (playingTabId !== null && playingTabId !== tabId && !(await tabExists(playingTabId))) {
@@ -49,20 +64,20 @@ async function handleRequestPlay(msg, sender) {
   }
 
   // Already the player → keep playing.
-  if (playingTabId === tabId) return { allow: true };
+  if (playingTabId === tabId) return { allow: true, gen: playGen };
 
   // No current player → this tab becomes it.
   if (playingTabId === null) {
-    await setPlayingTabId(tabId);
-    return { allow: true };
+    await setPlayState(tabId, playGen + 1);
+    return { allow: true, gen: playGen + 1 };
   }
 
   // A different tab holds the token. Only a real user action may take over.
   if (msg.userInitiated) {
     const previous = playingTabId;
-    await setPlayingTabId(tabId);
-    chrome.tabs.sendMessage(previous, { type: "PAUSE" }).catch(() => {});
-    return { allow: true };
+    await setPlayState(tabId, playGen + 1);
+    chrome.tabs.sendMessage(previous, { type: "PAUSE", gen: playGen + 1 }).catch(() => {});
+    return { allow: true, gen: playGen + 1 };
   }
 
   // Autoplay while another tab owns playback → deny.
@@ -79,8 +94,8 @@ async function tabExists(id) {
 }
 
 chrome.tabs.onRemoved.addListener(async (id) => {
-  const playingTabId = await getPlayingTabId();
-  if (playingTabId === id) await setPlayingTabId(null);
+  const { playingTabId, playGen } = await getPlayState();
+  if (playingTabId === id) await setPlayState(null, playGen);
 });
 
 // ─── Push settings to tabs on load / settings change ─────────────────────────
