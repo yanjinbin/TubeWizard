@@ -101,6 +101,7 @@ chrome.runtime.onMessage.addListener((msg) => {
 // the MAIN world script so it can use the player API (pauseVideo) instead; it
 // falls back to video.pause() only when the API isn't ready yet.
 function pauseViaPlayerApi() {
+  lastExtPauseTime = Date.now();
   window.dispatchEvent(new CustomEvent("yte:pause-video"));
 }
 function playViaPlayerApi() {
@@ -130,6 +131,17 @@ document.addEventListener("playing", (e) => {
   if (e.target.tagName === "VIDEO") tabHasPlayed = true;
 }, true);
 
+// …but YouTube ALSO fires gesture-less plays on its own in two moments: right
+// when a hidden tab becomes visible (deferred autoplay on first view / resume
+// on tab switch), and right after we paused it to deny a request (it retries).
+// Those must NOT count as user-initiated, or merely switching to this tab
+// would steal the play token and pause the tab the user was listening to.
+let lastBecameVisible = 0;
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState === "visible") lastBecameVisible = Date.now();
+});
+let lastExtPauseTime = 0; // stamped in pauseViaPlayerApi()
+
 // DOM events cross the isolated/main world boundary, so this works here.
 document.addEventListener("play", (e) => {
   if (e.target.tagName !== "VIDEO") return;
@@ -137,9 +149,13 @@ document.addEventListener("play", (e) => {
   if (!extAlive()) return;
 
   const video = e.target;
-  const userInitiated =
-    Date.now() - lastGestureTime < 1000 ||
-    (tabHasPlayed && Date.now() - lastNavTime > 5000);
+  const now = Date.now();
+  const mediaKeyResume =
+    tabHasPlayed &&
+    now - lastNavTime > 5000 &&
+    now - lastBecameVisible > 1500 && // not YouTube's play-on-tab-switch
+    now - lastExtPauseTime > 1500;    // not YouTube retrying after our deny
+  const userInitiated = now - lastGestureTime < 1000 || mediaKeyResume;
 
   // Ask the background whether this tab owns playback. We do NOT pre-pause
   // here because the async roundtrip (service-worker wake + two storage reads)
