@@ -128,8 +128,17 @@ let tabHasPlayed = false;
 let lastNavTime = Date.now();
 document.addEventListener("yt-navigate-finish", () => { lastNavTime = Date.now(); });
 document.addEventListener("playing", (e) => {
-  if (e.target.tagName === "VIDEO") tabHasPlayed = true;
+  if (e.target.tagName === "VIDEO" && !isPreviewVideo(e.target)) tabHasPlayed = true;
 }, true);
+
+// Inline hover previews on browse pages (home / search / subscriptions) run in
+// their own muted player (#inline-preview-player inside ytd-video-preview),
+// separate from the real #movie_player. They are teasers, not playback: they
+// must neither take the play token nor be paused — otherwise merely pointing
+// the mouse at the video grid would silence the tab the user is listening to.
+function isPreviewVideo(video) {
+  return Boolean(video.closest("ytd-video-preview, #inline-preview-player"));
+}
 
 // …but YouTube ALSO fires gesture-less plays on its own in two moments: right
 // when a hidden tab becomes visible (deferred autoplay on first view / resume
@@ -145,6 +154,7 @@ let lastExtPauseTime = 0; // stamped in pauseViaPlayerApi()
 // DOM events cross the isolated/main world boundary, so this works here.
 document.addEventListener("play", (e) => {
   if (e.target.tagName !== "VIDEO") return;
+  if (isPreviewVideo(e.target)) return;
   if (!settings.singlePlayback) return;
   if (!extAlive()) return;
 
