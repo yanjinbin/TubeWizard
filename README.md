@@ -79,7 +79,7 @@ TubeWizard collects nothing. See the [Privacy Policy](https://yanjinbin.github.i
 
 ## License
 
-MIT
+[MIT](LICENSE)
 
 ---
 
