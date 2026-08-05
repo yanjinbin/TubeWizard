@@ -419,6 +419,13 @@
     if (now - stallSince < STALL_MS) return;
     if (now - rescuedAt < STALL_MS * 2) return; // one rescue per window
 
+    // Capture the resume position before changing quality. YouTube may rebuild
+    // the media source synchronously inside applyQuality(), during which the
+    // raw video's currentTime can briefly fall back to 0. Reading it afterward
+    // would turn this in-place recovery into seekTo(0) and restart the video.
+    const resumeTime = video.currentTime;
+    if (!Number.isFinite(resumeTime) || resumeTime < 0) return;
+
     rescuedAt = now;
     stallSince = 0;
     if (!qualityRelaxed) {
@@ -426,7 +433,7 @@
       applyQuality(player);
     }
     // Re-seek to the same spot: aborts hung media requests and restarts them.
-    player.seekTo?.(video.currentTime, true);
+    player.seekTo?.(resumeTime, true);
   }, 1000);
 
   // ─── SPA navigation ────────────────────────────────────────────────────────
