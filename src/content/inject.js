@@ -96,7 +96,7 @@
     video.addEventListener("canplay", apply, { once: true });
   }
 
-  function applyQuality(player) {
+  function applyQuality(player, forceStepDown) {
     if (!settings.autoQuality) return;
     const available = player.getAvailableQualityLevels?.();
     if (!available?.length) return;
@@ -104,12 +104,30 @@
     const target = pickBestQuality(available);
     if (!target) return;
 
-    // Pin min = max to hold the preferred quality — unless the stall watchdog
-    // relaxed the pin for this video: then only cap the max so ABR can step
-    // down to keep playback alive on a weak connection.
-    const min = qualityRelaxed ? lowestQuality(available) : target;
-    player.setPlaybackQualityRange?.(min, target);
-    player.setPlaybackQuality?.(target);
+    if (!qualityRelaxed) {
+      // Pin min = max to hold the preferred quality.
+      player.setPlaybackQualityRange?.(target, target);
+      player.setPlaybackQuality?.(target);
+      return;
+    }
+
+    // Relaxed by the stall watchdog: free the minimum so ABR can step down to
+    // keep playback alive on a weak connection. Never re-pin the preferred
+    // quality — that would undo the relaxation and re-stall the video.
+    player.setPlaybackQualityRange?.(lowestQuality(available), target);
+    if (forceStepDown) {
+      // Nudge the live stream one notch below the preferred level so the
+      // rescue re-fetch doesn't restart at the heavy rendition.
+      const step = stepDownQuality(available, target) ?? lowestQuality(available);
+      player.setPlaybackQuality?.(step);
+    }
+  }
+
+  // Next-lower level below the preferred target. YouTube lists `available`
+  // high→low, so the direct successor is exactly one notch down.
+  function stepDownQuality(available, target) {
+    const idx = available.indexOf(target);
+    return idx !== -1 && idx < available.length - 1 ? available[idx + 1] : null;
   }
 
   function lowestQuality(available) {
@@ -188,6 +206,9 @@
 
   // Zero extra I/O: record bytes downloaded per videoplayback request, timestamped
   // by wall-clock arrival, so we can average throughput over a real time window.
+  // The same arrivals feed `lastDataAt`, the stall watchdog's ground truth for
+  // "the connection is alive" — chunks can arrive seconds apart on a slow link
+  // even though the buffer is growing, and that must not look like a stall.
   function startSpeedObserver() {
     if (speedObserverStarted) return;
     speedObserverStarted = true;
@@ -197,7 +218,10 @@
         for (const e of list.getEntries()) {
           if (!/videoplayback/.test(e.name)) continue;
           const bytes = e.transferSize || e.encodedBodySize || 0;
-          if (bytes > 0) byteLog.push({ t: now, bytes });
+          if (bytes > 0) {
+            byteLog.push({ t: now, bytes });
+            lastDataAt = Math.max(lastDataAt, now);
+          }
         }
       }).observe({ type: "resource", buffered: true });
     } catch { /* PerformanceObserver unsupported */ }
@@ -378,13 +402,19 @@
   // ─── Stall watchdog ────────────────────────────────────────────────────────
   // Resuming a long-paused tab must re-establish media connections; behind a
   // proxy that drops idle connections the fetch can hang forever (spinner,
-  // empty buffer). When playback is stuck ≥5s with no data arriving: relax the
-  // quality pin so ABR may step down, and re-seek to the current position to
-  // force the player to abort dead requests and re-fetch.
-  const STALL_MS = 5000;
+  // empty buffer). When playback is genuinely stuck — no media bytes arriving
+  // AND no buffer growth — relax the quality pin so ABR can step down, and
+  // re-seek in place to abort dead requests and re-fetch.
+  //
+  // Slow-but-alive connections must NOT trigger a rescue: on a throttled link
+  // chunks arrive seconds apart, so buffered.end() can stand still for a while
+  // even though data is flowing. The byte-arrival log is the ground truth —
+  // recent bytes mean the connection is healthy, no matter how slowly.
+  const STALL_MS = 8000;
   let qualityRelaxed = false;
   let stallSince = 0;
   let lastBufferedEnd = -1;
+  let lastDataAt = 0; // performance.now() of the last videoplayback bytes seen
   let rescuedAt = 0;
 
   setInterval(() => {
@@ -397,8 +427,17 @@
       return;
     }
 
+    const now = performance.now();
+
+    // Data is still arriving (even slowly) → not a stall, leave the buffer
+    // alone and let YouTube's own ABR deal with the slow connection.
+    if (now - lastDataAt < STALL_MS) {
+      stallSince = 0;
+      return;
+    }
+
     // Playing-intent but not enough data. Stall only counts while the buffer
-    // makes no progress — normal buffering (data flowing) is left alone.
+    // makes no progress either.
     let bufferedEnd = -1;
     try {
       for (let i = 0; i < video.buffered.length; i++) {
@@ -414,7 +453,6 @@
       return;
     }
 
-    const now = Date.now();
     if (!stallSince) { stallSince = now; return; }
     if (now - stallSince < STALL_MS) return;
     if (now - rescuedAt < STALL_MS * 2) return; // one rescue per window
@@ -428,12 +466,35 @@
 
     rescuedAt = now;
     stallSince = 0;
+    lastBufferedEnd = -1; // the rescue clears the buffer — track it afresh
     if (!qualityRelaxed) {
       qualityRelaxed = true;
-      applyQuality(player);
+      applyQuality(player, true);
     }
     // Re-seek to the same spot: aborts hung media requests and restarts them.
     player.seekTo?.(resumeTime, true);
+
+    // YouTube tears down and rebuilds its media pipeline asynchronously after
+    // a quality change; the synchronous seek above can land in the dying
+    // pipeline and be dropped, leaving the player to restart from 0. Verify
+    // the position a moment later and re-assert it — but only if it fell
+    // BACKWARD (the reset case), never undo forward progress.
+    (async () => {
+      const v =
+        document.querySelector("video.html5-main-video") ||
+        document.querySelector("video");
+      const p = getPlayer();
+      if (!v || !p) return;
+      await new Promise((r) => setTimeout(r, 500));
+      if (!v.isConnected || v.currentTime >= resumeTime - 2) return;
+      p.seekTo?.(resumeTime, true);
+      await new Promise((r) => setTimeout(r, 250));
+      if (v.isConnected && v.currentTime < resumeTime - 2) {
+        // Last resort on the raw element; YouTube's player syncs to element
+        // seeks via its own seeking listener.
+        try { v.currentTime = resumeTime; } catch { /* mid-seek */ }
+      }
+    })();
   }, 1000);
 
   // ─── SPA navigation ────────────────────────────────────────────────────────
@@ -446,6 +507,10 @@
     scheduleHud();
     scheduleAutoplayBlock();
   });
+
+  // Always-on (idempotent): the stall watchdog needs the byte-arrival log to
+  // tell a slow connection from a dead one, independent of the HUD setting.
+  startSpeedObserver();
 
   // All state above is now initialized — safe to ask the isolated script for the
   // current settings (it replies synchronously via a "yte:settings" event, which
