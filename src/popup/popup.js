@@ -58,13 +58,13 @@ async function fetchMessages(lang) {
   }
 }
 
-const RTL_LANGS = new Set(["ar", "fa"]);
+const RTL_LANGS = new Set(["ar", "fa", "he"]);
 
 async function applyI18n() {
   const { lang = "" } = await chrome.storage.sync.get("lang");
   const messages = lang ? await fetchMessages(lang) : null;
   const resolvedLang = lang || chrome.i18n.getUILanguage();
-  document.documentElement.lang = resolvedLang;
+  document.documentElement.lang = resolvedLang.replace("_", "-");
   document.documentElement.dir = RTL_LANGS.has(resolvedLang.split("-")[0]) ? "rtl" : "ltr";
   document.querySelectorAll("[data-i18n]").forEach((node) => {
     const key = node.dataset.i18n;

@@ -10,6 +10,9 @@
 
 **25 languages:** English · 简体中文 · 繁體中文 · 日本語 · 한국어 · Español · Français · Português · Bahasa Indonesia · العربية · فارسی · Kiswahili · Yorùbá · Igbo · বাংলা · עברית · हिन्दी · Italiano · Монгол · Nederlands · ਪੰਜਾਬੀ · Polski · Русский · Українська · Tiếng Việt
 
+Language can be selected manually in the popup, or left on **Auto** to follow
+Chrome's interface language (with English as the extension fallback).
+
 </div>
 
 ---

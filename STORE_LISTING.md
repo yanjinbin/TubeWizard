@@ -53,7 +53,7 @@ or sponsored by YouTube or Google LLC.
 Productivity
 
 ### Language
-English, 简体中文, 繁體中文, 日本語, 한국어, Español, Français, Português, Bahasa Indonesia, العربية, فارسی, Kiswahili, Yorùbá, Igbo
+English, 简体中文, 繁體中文, 日本語, 한국어, Español, Français, Português, Bahasa Indonesia, العربية, فارسی, Kiswahili, Yorùbá, Igbo, বাংলা, עברית, हिन्दी, Italiano, Монгол, Nederlands, ਪੰਜਾਬੀ, Polski, Русский, Українська, Tiếng Việt
 
 ---
 
@@ -97,7 +97,7 @@ TubeWizard 是独立扩展，与 YouTube 或 Google LLC 无任何关联，也未
 效率
 
 ### 语言
-English, 简体中文, 繁體中文, 日本語, 한국어, Español, Français, Português, Bahasa Indonesia, العربية, فارسی, Kiswahili, Yorùbá, Igbo
+English, 简体中文, 繁體中文, 日本語, 한국어, Español, Français, Português, Bahasa Indonesia, العربية, فارسی, Kiswahili, Yorùbá, Igbo, বাংলা, עברית, हिन्दी, Italiano, Монгол, Nederlands, ਪੰਜਾਬੀ, Polski, Русский, Українська, Tiếng Việt
 
 ---
 
